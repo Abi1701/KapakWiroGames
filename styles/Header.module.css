@@ -1,0 +1,54 @@
+.nav{
+  background-color: #3A4750;
+  display: flex;
+}
+.slidebar{
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  margin-left: 5rem;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  cursor: pointer;
+}
+.home{
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  margin-top: 1.5rem;
+}
+.name{
+  margin-left: 2rem;
+}
+.navContents{
+  color: white;
+  margin-left: 58rem;
+  position: absolute;
+}
+.drawerlist{
+  display: flex;
+  flex-direction: row;
+  padding: 0 0 0 0;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.drawerlist:hover{
+  background-color: #EEEEEE;
+  border-radius: 15px;
+  width: 170px;
+  font-size: 0.7em;
+}
+.drawercontent{
+  font-size: 1.8em;
+}
+.logout{
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  cursor: pointer;
+  margin-left: 50rem;
+}

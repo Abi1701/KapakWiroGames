@@ -1,0 +1,206 @@
+.container {
+  background-color: #3A4750;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+}
+.content{
+  color: white;
+  margin-top: 7rem;
+  margin-left: 5rem;
+  position: absolute;
+}
+.span{
+  color: red;
+}
+.spans{
+  color: green;
+}
+.banner{
+  width: 100px;
+}
+.Gamelist{
+  background-color: #D72323;
+  height: 70vh;
+  background-size: cover;
+}
+.GamelistContent{
+  margin-top: 37rem;
+  margin-left: 15rem;
+  display: flex;
+  flex-direction: row;
+}
+.cardGamelist{
+  margin-top: 1rem;
+  margin-left: 2rem;
+  padding: 1.5rem;
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in;
+  width: 200px;
+  max-width: 450px;
+}
+.cardGamelist:hover,
+.cardGamelist:focus,
+.cardGamelist:active {
+  color: white;
+  border-color: #3A4750;
+  border: solid 5px #3A4750;
+  width: 350px;
+  background-color: #3A4750;
+}
+.picture{
+  width: 60%;
+}
+.buttonGamelist{
+
+}
+.promo{
+  height: 100vh;
+  background-color: #3A4750;
+  background-size: cover;
+  width: 100%;
+}
+.contentContainer{
+  position: relative;
+  margin-left: 5rem;
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: row;
+}
+.inputContent{
+  color:antiquewhite;
+  margin-top: 10rem;
+}
+.inputContainer{
+  position: absolute;
+  margin-left: 45rem;
+  margin-top: 9rem;
+}
+.inputField{
+  width: 200px;
+  height: 50px;
+  border-radius: 15px;
+  border: black;
+  background-color: white ;
+}
+.spanRegistration:hover{
+  color: #EA4335;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.card {
+  margin-left: 10rem;
+  margin-top: 10rem;
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  width: 450px;
+  max-width: 450px;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  color: white;
+  border-color: red;
+}
+.button {
+  position: absolute;
+  overflow: hidden;
+  align-items: center;
+
+  margin-left: 1rem;
+  gap: 12px;
+  height: 56px;
+  width: 208px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 15px;
+  color: #f7f7f7;
+  background: #d62959;
+  cursor: pointer;
+}
+
+.text {
+  position: absolute;
+  left: 64px;
+  display: block;
+  white-space: nowrap;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.icon {
+  font-size: 30px;
+}
+
+.button.sending .text {
+  animation: textAnimation 5s both;
+}
+
+.button.sending .icon {
+  animation: iconAnimation 5s both;
+}
+
+@keyframes textAnimation {
+  0%,
+  30% {
+    translate: 0 0;
+  }
+  39.9% {
+    translate: 0 100px;
+  }
+  40% {
+    translate: 300px 100px;
+  }
+  40.1% {
+    translate: 300px -60px;
+  }
+  40.2% {
+    translate: 33px -60px;
+  }
+  45% {
+    translate: 33px 0;
+  }
+  95% {
+    translate: 33px 0;
+  }
+  100% {
+    translate: 0 0;
+  }
+}
+
+@keyframes iconAnimation {
+  0%,
+  5% {
+    translate: 0 0;
+  }
+  20%,
+  30% {
+    translate: -250px 0;
+  }
+  40% {
+    translate: 200px 0;
+    scale: 2;
+  }
+  40.1% {
+    translate: 200px -60px;
+    scale: 1;
+  }
+  40.2% {
+    translate: 34px -60px;
+  }
+  45%,
+  95% {
+    translate: 34px 0;
+  }
+  100% {
+    translate: 0 0;
+  }}
