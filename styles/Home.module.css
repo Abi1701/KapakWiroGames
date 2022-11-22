@@ -1,68 +1,237 @@
 .container {
-  background-color: #3A4750;
-  height: 100vh;
+  background-color: black;
+  height: 150vh;
   width: 100%;
-  position: absolute;
-}
-.content{
-  color: white;
-  margin-top: 7rem;
-  margin-left: 5rem;
-  position: absolute;
-}
-.span{
-  color: red;
-}
-.spans{
-  color: green;
-}
-.banner{
-  width: 100px;
-}
-.Gamelist{
-  background-color: #D72323;
-  height: 70vh;
   background-size: cover;
 }
-.GamelistContent{
-  margin-top: 37rem;
-  margin-left: 15rem;
+.home{
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
-.cardGamelist{
-  margin-top: 1rem;
+.bigCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-left: 2rem;
   padding: 1.5rem;
   text-align: center;
   color: inherit;
   text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
+  transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in-out;
+  width: 500px;
+  height: 350px;
+  border-radius: 15px;
+}
+
+.bigCard:hover,
+.bigCard:focus,
+.bigCard:active {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  border-radius: 15px;
+  width: 500px;
+  height: 350px;
+  background-color: black;
+}
+.pictureBigCard{
+  margin-top: 2rem;
+  width: 80%;
+  border-radius: 15px;
+}
+.GamelistContentRight{
+  display: flex;
+  flex-direction: column;
+}
+.rightContent{
+  margin-left: 2rem;
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
   transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in;
-  width: 200px;
-  max-width: 450px;
+  width: 300px;
+  height: 150px;
+  border-radius: 15px;
+}
+.rightContent:hover,
+.rightContent:focus,
+.rightContent:active {
+  text-decoration: none;
+  color: white;
+  border-radius: 15px;
+  width: 400px;
+  height: 200px;
+  background-color: black;
+}
+.pictureRightCard{
+  margin-top: 1rem;
+  width: 50%;
+  border-radius: 15px;
+}
+.pictureBotomCard{
+  margin-top: 1rem;
+  width: 70%;
+  border-radius: 15px;
+}
+.GamelistContentBotom{
+  display: flex;
+  flex-direction: row;
+  padding-left: 9.5rem;
+}
+.botomContent{
+  margin-top: 1rem;
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
+  transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in;
+  width: 300px;
+  height: 150px;
+  border-radius: 15px;
+}
+.botomContent:hover,
+.botomContent:focus,
+.botomContent:active {
+  text-decoration: none;
+  color: white;
+  border-radius: 15px;
+  width: 400px;
+  height: 250px;
+  background-color: black;
+}
+.tittle{
+  color:white;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.gameContent{ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.Gamelist{
+  background-color: #D72323;
+  height: 90vh;
+  background-size: cover;
+}
+.GamelistContent{
+  display: flex;
+  flex-direction: column;
+}
+.GamelistTittle{
+  font-size: 2em;
+  font-weight: 700;
+}
+.GamelistUser{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
+  transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in;
+  border-radius: 15px;
+}
+.cardGamelist{
+    margin-left: 2rem;
+    padding: 1.5rem;
+    text-align: center;
+    color: inherit;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in;
+    width: 400px;
+    height: auto;
 }
 .cardGamelist:hover,
 .cardGamelist:focus,
 .cardGamelist:active {
   color: white;
   border-color: #3A4750;
-  border: solid 5px #3A4750;
-  width: 350px;
+  width: 400px;
+  height: auto;
   background-color: #3A4750;
 }
 .picture{
   width: 60%;
 }
-.buttonGamelist{
 
+.buttonGamelist{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 6rem;
+  background-color: black;
+  color: white;
+  transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in;
+  width: 150px;
+  height: 30px;
+  border-radius: 15px;
+}
+.buttonGamelist:hover,
+.buttonGamelist:focus,
+.buttonGamelist:active {
+  color: black;
+  border-color: #3A4750;
+  background-color: white;
+  border-radius: 15px;
+  width: 150px;
+  height: 30px;
+}
+.rowGame{
+  background-color: black;
+  height: 150vh;
+  background-size: cover;
+}
+.GamelistColGame{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.GamelistCol{
+  width: 300px;
+  padding-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
+  transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in;
+  border-radius: 15px;
+}
+.GamelistColContent{
+  margin-left: 2rem;
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 15px;
+  transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in;
+ }
+ .GamelistColContent:hover,
+ .GamelistColContent:focus,
+ .GamelistColContent:after{
+  text-decoration: none;
+  color: white;
+  border-radius: 15px;
+  background-color: black;
+ }
+.GamelistPicture{
+ margin-top: 1rem;
+  border-radius: 15px;
+  width: 80%;
 }
 .promo{
   height: 100vh;
   background-color: #3A4750;
   background-size: cover;
-  width: 100%;
 }
 .contentContainer{
   position: relative;
@@ -73,7 +242,6 @@
 }
 .inputContent{
   color:antiquewhite;
-  margin-top: 10rem;
 }
 .inputContainer{
   position: absolute;
@@ -93,7 +261,6 @@
 }
 .card {
   margin-left: 10rem;
-  margin-top: 10rem;
   padding: 1.5rem;
   text-align: left;
   color: inherit;
@@ -115,7 +282,6 @@
   position: absolute;
   overflow: hidden;
   align-items: center;
-
   margin-left: 1rem;
   gap: 12px;
   height: 56px;
