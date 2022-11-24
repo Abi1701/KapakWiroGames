@@ -5,6 +5,7 @@ import theme from '../src/theme'
 import { ThemeProvider as ThemeStyled } from 'styled-components'
 import { ThemeProvider } from '@mui/material/styles'
 import Header from '../src/component/header'
+
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>

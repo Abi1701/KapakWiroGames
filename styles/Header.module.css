@@ -1,5 +1,5 @@
 .nav{
-  background-color: #3A4750;
+  background-color: black;
   display: flex;
 }
 .slidebar{
@@ -10,6 +10,22 @@
   flex-direction: row;
   position: relative;
   cursor: pointer;
+}
+.slideBarMenu{
+  color: white;
+  font-family: 'Roboto Slab', serif;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  cursor: pointer;
+  opacity: 60%;
+  transition: opacity 0.5s ease-in-out,box-shadow 0.5s ease-in-out;
+}
+.slideBarMenu:hover{
+  opacity: 100%;
+  box-shadow: rgb(210, 210, 210) 5px 5px, rgb(180, 180, 180) 10px 10px, rgb(120, 120, 120) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;  border-radius: 2px;
+  background-color: rgb(240, 240, 240);
+  color: black;
 }
 .home{
   color: white;
@@ -34,15 +50,19 @@
   padding: 0 0 0 0;
   margin-left: 2rem;
   margin-right: 2rem;
+  color: white;
+  width: 170px;
+  border-radius: 15px;
+  transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in-out;
 }
 .drawerlist:hover{
-  background-color: #EEEEEE;
+  background-color: white;
   border-radius: 15px;
+  color:black;
   width: 170px;
-  font-size: 0.7em;
 }
 .drawercontent{
-  font-size: 1.8em;
+  font-size: 1.5em;
 }
 .logout{
   background-color: transparent;
@@ -50,5 +70,5 @@
   color: white;
   font-family: 'Roboto Slab', serif;
   cursor: pointer;
-  margin-left: 50rem;
+  margin-left: 60rem;
 }

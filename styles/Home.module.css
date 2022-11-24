@@ -9,6 +9,43 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in-out;
+
+}
+.barContainer{
+  display: flex;
+  position: absolute;
+  padding-left: 5rem;
+}
+.searchBar{
+  color: white;
+  background-color: white;
+  border-radius: 15px;
+  height: 55px;
+  margin-right: 2rem;
+  margin-top: 0.5rem;
+  opacity: 60%;
+  transition:box-shadow 0.5s ease-in-out;
+}
+.searchBar:hover,
+.searchBar:focus,
+.searchBar:active{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: rgb(240, 240, 240) 0px 5px, rgb(210, 210, 210) 0px 10px, rgb(180, 180, 180) 0px 15px, rgb(120, 120, 120) 0px 20px, rgb(90, 90, 90) 0px 25px;
+}
+  .homeBar{
+  color: white;
+  opacity: 50%;
+  transition:opacity 0.5s ease-in-out;
+}
+.homeBar:hover,
+.homeBar:focus,
+.homeBar:active{
+  opacity: 100%;
 }
 .bigCard{
   display: flex;
@@ -62,8 +99,7 @@
   text-decoration: none;
   color: white;
   border-radius: 15px;
-  width: 400px;
-  height: 200px;
+
   background-color: black;
 }
 .pictureRightCard{
@@ -97,8 +133,7 @@
   text-decoration: none;
   color: white;
   border-radius: 15px;
-  width: 400px;
-  height: 250px;
+
   background-color: black;
 }
 .tittle{
@@ -106,6 +141,7 @@
   justify-content: center;
   align-items: center;
   display: flex;
+  padding-left: 2rem;
 }
 .gameContent{ 
   display: flex;
@@ -114,7 +150,7 @@
   margin-bottom: 1rem;
 }
 .Gamelist{
-  background-color: #D72323;
+  background-color: black;
   height: 90vh;
   background-size: cover;
 }
@@ -125,6 +161,8 @@
 .GamelistTittle{
   font-size: 2em;
   font-weight: 700;
+  color: white;
+  padding-left: 5rem;
 }
 .GamelistUser{
   justify-content: center;
@@ -196,7 +234,19 @@
 }
 .GamelistCol{
   width: 300px;
-  padding-top: 1rem;
+  padding-top: 2rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: inherit;
+  text-decoration: none;
+  transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in;
+  border-radius: 15px;
+}
+.GamelistCol1{
+  width: 300px;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -228,145 +278,104 @@
   border-radius: 15px;
   width: 80%;
 }
+.buttonGamelist1{
+  background-color: black;
+  color: white;
+  transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in;
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+}
+.buttonGamelist1:hover,
+.buttonGamelist1:focus,
+.buttonGamelist1:active {
+  color: black;
+  border-color: #3A4750;
+  background-color: white;
+  border-radius: 15px;
+  width: 100px;
+  height: 30px;
+}
 .promo{
   height: 100vh;
-  background-color: #3A4750;
+  background-color: black;
   background-size: cover;
-}
-.contentContainer{
-  position: relative;
-  margin-left: 5rem;
-  font-size: 1.5em;
   display: flex;
-  flex-direction: row;
 }
-.inputContent{
-  color:antiquewhite;
-}
-.inputContainer{
-  position: absolute;
-  margin-left: 45rem;
-  margin-top: 9rem;
-}
-.inputField{
-  width: 200px;
-  height: 50px;
-  border-radius: 15px;
-  border: black;
-  background-color: white ;
-}
-.spanRegistration:hover{
-  color: #EA4335;
-  transition: color 0.15s ease, border-color 0.15s ease;
-}
-.card {
-  margin-left: 10rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  width: 450px;
-  max-width: 450px;
-}
-
-.card:hover,
-.card:focus,
-.card:active {
+.promoContent{
   color: white;
-  border-color: red;
+  text-align: center;
+  margin-left: 13rem;
+  margin-top: 13rem;
 }
-.button {
-  position: absolute;
-  overflow: hidden;
-  align-items: center;
-  margin-left: 1rem;
-  gap: 12px;
-  height: 56px;
-  width: 208px;
-  padding: 0 22px;
-  border: 0;
-  border-radius: 15px;
-  color: #f7f7f7;
-  background: #d62959;
+.spanContents{
+  color: red;
   cursor: pointer;
+  transition:color 0.5s ease-in;
 }
+.spanContents:hover,
+.spanContents:focus,
+.spanContents:active {
+  color: white;
 
-.text {
+}
+.content{
+  color: white;
   position: absolute;
-  left: 64px;
-  display: block;
-  white-space: nowrap;
-  font-size: 17px;
-  font-weight: 600;
 }
-
-.icon {
-  font-size: 30px;
+.footer{
+  height: 30vh;
+  background-color: black;
+  background-size: cover;
+  display: flex;
 }
-
-.button.sending .text {
-  animation: textAnimation 5s both;
+.content1{
+padding-top: 5%;
+color: white;
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+text-align: right;
+display: flex;
+text-transform: uppercase;
+color: #FFFFFF;
+margin-left: 10rem;
+flex-direction: row;
 }
-
-.button.sending .icon {
-  animation: iconAnimation 5s both;
+.contents1{
+  text-decoration: none;
+  color: white;
+  margin-left: 4rem;
 }
-
-@keyframes textAnimation {
-  0%,
-  30% {
-    translate: 0 0;
-  }
-  39.9% {
-    translate: 0 100px;
-  }
-  40% {
-    translate: 300px 100px;
-  }
-  40.1% {
-    translate: 300px -60px;
-  }
-  40.2% {
-    translate: 33px -60px;
-  }
-  45% {
-    translate: 33px 0;
-  }
-  95% {
-    translate: 33px 0;
-  }
-  100% {
-    translate: 0 0;
-  }
+.border{
+  margin-left: 4rem;
 }
+.content3{
+display: flex;
+}
+.contents3{
+  font-family: 'Open Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 19px;
+color: #FFFFFF;
+mix-blend-mode: normal;
+opacity: 0.5;
+margin-left: 4rem;
+}
+.contents31{
+  font-family: 'Open Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 16px;
+text-align: right;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+margin-left: 32.2rem;
+color: #FFFFFF;
 
-@keyframes iconAnimation {
-  0%,
-  5% {
-    translate: 0 0;
-  }
-  20%,
-  30% {
-    translate: -250px 0;
-  }
-  40% {
-    translate: 200px 0;
-    scale: 2;
-  }
-  40.1% {
-    translate: 200px -60px;
-    scale: 1;
-  }
-  40.2% {
-    translate: 34px -60px;
-  }
-  45%,
-  95% {
-    translate: 34px 0;
-  }
-  100% {
-    translate: 0 0;
-  }}
+}

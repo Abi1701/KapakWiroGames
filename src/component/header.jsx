@@ -37,25 +37,20 @@ export default function Header() {
   };
 
   const list = (anchor) => (
-    <Box
+    <Box backgroundColor='black'
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List disablePadding sx={'display:flex'}>
-      <a className={styles.drawerlist} href="">
+      <a className={styles.drawerlist} href="/user/auth">
         <h1 className={styles.drawercontent}><Login sx={{mr:2,ml:1}} />Login</h1>
       </a>
-      <Divider orientation="vertical" flexItem />
-      <a className={styles.drawerlist} href="/register">
+      <Divider color='white' orientation="vertical" flexItem />
+      <a className={styles.drawerlist} href="/user/auth">
         <h1 className={styles.drawercontent}><AppRegistration sx={{mr:2,ml:1}} />Register</h1>
       </a>
-      <Divider orientation="vertical" flexItem />
-      <a className={styles.drawerlist} href="">
-        <h1 className={styles.drawercontent}><Gamepad sx={{mr:2,ml:1}} />Game</h1>
-      </a>
-      <Divider orientation="vertical" flexItem />
       </List>
     </Box>
   );
@@ -66,7 +61,7 @@ export default function Header() {
         <div className={styles.slidebar}>
         {['top'].map((anchor) => (
       <React.Fragment key={anchor}>
-        <h1 onClick={toggleDrawer(anchor, true)}>Menu</h1>
+        <h1 className={styles.slideBarMenu} onClick={toggleDrawer(anchor, true)}>Menu</h1>
         <Drawer
           anchor={anchor}
           open={state[anchor]}
@@ -76,7 +71,6 @@ export default function Header() {
         </Drawer>
       </React.Fragment>
     ))}
-    <h1 className={styles.name}>KAPAK WIRO</h1>
         </div>
         <h1 className={styles.navContents}>hello,{profile?.name}</h1>
         <h1 className={styles.logout}>Logout</h1>
