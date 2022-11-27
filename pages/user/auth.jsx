@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { doAuth } from '../../src/store/actions/authActions'
+import { useDispatch } from 'react-redux'
 import {
   Container,
   SignUpContainer,
@@ -18,39 +20,33 @@ import {
 export default function Auth() {
   const [signIn, toggle] = useState(true);
   const [value, setValue] = useState({
-    nama: "",
+    username: "",
     email: "",
     password: "",
+    confirmPassword:"",
   });
-
+  const dispatch = useDispatch()
   const handleChange = (name) => (e) => {
     setValue({ ...value, [name]: e.target.value });
   };
-  const handleLogin = async () => {
-    try {
-      const { data } = await axios.post("/user/login", {
-        email: value.email,
-        password: value.password,
-      });
-      localStorage.setItem("_q", data.accessToken);
-      window.location.reload();
-      toast.success("login success");
-    } catch (error) {
-      toast.error("Wrong password or Wrong username");
+  const fetchLogin = async () => {
+    const body = {
+      username: value.username,
+      password: value.password,
     }
-  };
-  const handleRegister = async () => {
-    try {
-      await axios.post("/user/register", {
-        nama: value.nama,
-        email: value.email,
-        password: value.password,
-      });
-      toggle(true);
-    } catch (error) {
-      toast.error("register error");
+    dispatch(doAuth(body))
+  }
+  const fetchRegister = async () => {
+    const body = {
+      username: value.username,
+      email: value.email,
+      password: value.password,
+      confirmPassword: value.confirmPassword,
     }
-  };
+    dispatch(doAuth(body))
+  }
+
+
   return (
     <Container>
       <SignUpContainer signingIn={signIn}>
@@ -58,7 +54,7 @@ export default function Auth() {
           <Title>Create Account</Title>
           <Input
             type="text"
-            placeholder="Name"
+            placeholder="Username"
             onChange={handleChange("nama")}
           />
           <Input
@@ -74,18 +70,18 @@ export default function Auth() {
           <Input
             type="password"
             placeholder="Confirm Password"
-            onChange={handleChange("password")}
+            onChange={handleChange("confirmPassword")}
           />
-          <Button onClick={handleRegister}>Sign Up</Button>
+          <Button onClick={fetchRegister}>Sign Up</Button>
         </Form>
       </SignUpContainer>
       <SignInContainer signingIn={signIn}>
         <Form>
           <Title>Sign in</Title>
           <Input
-            type="email"
-            placeholder="Email"
-            onChange={handleChange("email")}
+            type="username"
+            placeholder="username"
+            onChange={handleChange("username")}
           />
           <Input
             type="password"
@@ -93,7 +89,7 @@ export default function Auth() {
             onChange={handleChange("password")}
           />
           <Anchor href="#">Forgot your password?</Anchor>
-          <Button onClick={handleLogin}>Sign In</Button>
+          <Button onClick={fetchLogin}>Sign In</Button>
         </Form>
       </SignInContainer>
       <OverlayContainer signingIn={signIn}>

@@ -4,14 +4,15 @@ const initialState = {
   profile: null,
 }
 
-export default (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PROFILE:
       return {
         ...state,
-        profile: action.data,
+        profile: action.profile,
       }
     default:
       return state
   }
 }
+export default authReducer
