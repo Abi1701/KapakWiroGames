@@ -5,14 +5,14 @@ import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import { useDispatch, useSelector } from 'react-redux'
-import { getProfile } from '../store/actions/authActions'
+import { doLogout, getProfile, updateToken } from '../store/actions/authActions'
 import { AppRegistration, Gamepad, Home, Login, Menu } from '@mui/icons-material';
 import { Divider } from '@mui/material';
 
 
 export default function Header() {
   const dispatch = useDispatch()
-  const profile = useSelector((state) => state.authReducer.profile)
+  const token = useSelector((state) => state.authReducer.token)
   let ignore = false
   React.useEffect(() => {
     if (!ignore) fetchData()
@@ -21,7 +21,7 @@ export default function Header() {
     }
   }, [])
   const fetchData = async () => {
-    await dispatch(getProfile())
+    await dispatch(updateToken())
   }
   const [state, setState] = React.useState({
     top: false,
@@ -35,7 +35,9 @@ export default function Header() {
 
     setState({ ...state, [anchor]: open });
   };
-
+  const logOut = async() => {
+    await doLogout()
+  }
   const list = (anchor) => (
     <Box backgroundColor='black'
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
@@ -43,7 +45,7 @@ export default function Header() {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List disablePadding sx={'display:flex'}>
+      {token?  (<h1 onClick={logOut} className={styles.logout}>Logout</h1>):(<List disablePadding sx={'display:flex'}>
       <a className={styles.drawerlist} href="/user/auth">
         <h1 className={styles.drawercontent}><Login sx={{mr:2,ml:1}} />Login</h1>
       </a>
@@ -51,10 +53,11 @@ export default function Header() {
       <a className={styles.drawerlist} href="/user/auth">
         <h1 className={styles.drawercontent}><AppRegistration sx={{mr:2,ml:1}} />Register</h1>
       </a>
-      </List>
+      </List>) }
+      
     </Box>
   );
-
+    
   return (
       <nav className={styles.nav}>
         <a className={styles.home} href="/"><Home /></a>
@@ -72,8 +75,8 @@ export default function Header() {
       </React.Fragment>
     ))}
         </div>
-        <h1 className={styles.navContents}>hello,{profile?.name}</h1>
-        <h1 className={styles.logout}>Logout</h1>
+        <h1 className={styles.navContents}>hello,User</h1>
+        
       </nav>
     
   )

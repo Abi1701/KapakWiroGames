@@ -133,24 +133,6 @@ export default function Home() {
             Most Played by Users <VerifiedUser />{" "}
           </p>
           <div className={styles.GamelistUser}>
-          <div class={styles.flipCard}>
-            <div class={styles.flipCardInner}>
-              <div class={styles.flipCardFront}>
-                <img className={styles.pict} src="/assets/AC.png" />
-                <h3 className={styles.h3}>Assassin's Creed Brotherhood</h3>
-              </div>
-              <div class={styles.flipCardBack}>
-                <img src="/assets/AC.png" />
-                <p>
-                {" "}
-                USER CHOICE <Verified />
-                <br />
-                <span>Rp. 750.000</span>
-              </p>
-                <button className={styles.buttonFlipCard}>Buy Now</button>
-              </div>
-            </div>
-          </div>
             <a href="https://nextjs.org/docs" className={styles.cardGamelist}>
               <h2>Cyber Punk</h2>
               <img className={styles.picture} src="/assets/CP.jpeg" alt="RPS" />

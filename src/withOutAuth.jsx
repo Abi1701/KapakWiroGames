@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import React from 'react'
 
-const withAuth = (Component) => {
+const withOutAuth = (Component) => {
   return () => {
     const router = useRouter()
     let ignore = true
@@ -13,8 +13,8 @@ const withAuth = (Component) => {
     }, [])
     const validate = async () => {
       const token = await localStorage.getItem('_q')
-      if (!token) {
-        router.push('/login')
+      if (token) {
+        router.push('/')
       }
     }
     return <Component />
@@ -22,4 +22,4 @@ const withAuth = (Component) => {
 }
 
 
-export default withAuth
+export default withOutAuth

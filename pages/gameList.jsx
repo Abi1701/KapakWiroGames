@@ -4,8 +4,9 @@ import style from "./../styles/gameList.module.css";
 export default function Gamelist() {
   return (
     <div className={style.root}>
+      
       <div className={style.gridContainer}>
-      <h1 className={style.tittle}>Choose Game</h1>
+      <p className={style.tittle}>Choose Game</p>
         <div className={style.grid}>
           <a href="/dicegame" class={style.flipCard}>
             <div class={style.flipCardInner}>
@@ -40,9 +41,10 @@ export default function Gamelist() {
                 <h3 className={style.h3}>Cyber Punk</h3>
               </div>
               <div class={style.flipCardBack}>
+              <a href=""><button className={style.flipCardBackButton}>Details</button></a>
                 <img src="/assets/CP.jpeg" />
                 <p className={style.caption}> Click the Button for Get details </p>
-                <button className={style.buttonFlipCard}>Details</button>
+                <button className={style.buttonFlipCard}>Buy NOW!</button>
               </div>
             </div>
           </a>
@@ -53,9 +55,10 @@ export default function Gamelist() {
                 <h3 className={style.h3}>Angry Bird 2: Kill that PIG</h3>
               </div>
               <div class={style.flipCardBack}>
+              <a href=""><button className={style.flipCardBackButton}>Details</button></a>
                 <img src="/assets/angrybird.jpg" />
                 <p className={style.caption}> Click the Button for Get details </p>
-                <button className={style.buttonFlipCard}>Details</button>
+                <button className={style.buttonFlipCard}>Buy NOW</button>
               </div>
             </div>
           </a>
@@ -66,9 +69,10 @@ export default function Gamelist() {
                 <h3 className={style.h3}>Assasins Creed: Brother Hood</h3>
               </div>
               <div class={style.flipCardBack}>
+              <a href=""><button className={style.flipCardBackButton}>Details</button></a>
                 <img src="/assets/AC.png" />
                 <p className={style.caption}> Click the Button for Get details </p>
-                <button className={style.buttonFlipCard}>Details</button>
+                <button className={style.buttonFlipCard}>Buy NOW</button>
               </div>
             </div>
           </a>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { doLogin } from '../../src/store/actions/authActions'
-import { useDispatch } from 'react-redux'
+import { changeToggle, doLogin } from '../../src/store/actions/authActions'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   Container,
   SignUpContainer,
@@ -17,8 +17,9 @@ import {
   Paragraph,
   RightOverlayPanel,
 } from "../../src/component/styled";
-export default function Auth() {
-  const [signIn, toggle] = useState(true);
+import withOutAuth from "../../src/withOutAuth";
+ function Auth() {
+  const signIn = useSelector((state) => state.authReducer.toggle)
   const [value, setValue] = useState({
     first_name:"",
     last_name:"",
@@ -36,7 +37,7 @@ export default function Auth() {
       username: value.username,
       password: value.password,
     }
-    dispatch(doLogin(body))
+   await doLogin(body)
   }
   const handleRegister = async () => {
     try {
@@ -51,7 +52,9 @@ export default function Auth() {
     } catch (error) {
     }
   }
-
+const updateToggle =(data)=>{
+  dispatch(changeToggle(data))
+}
 
 
   return (
@@ -111,14 +114,14 @@ export default function Auth() {
             <Paragraph>
               To keep connected with us please login with your personal info
             </Paragraph>
-            <GhostButton onClick={() => toggle(true)}>Sign In</GhostButton>
+            <GhostButton onClick={() => updateToggle(true)}>Sign In</GhostButton>
           </LeftOverlayPanel>
           <RightOverlayPanel signingIn={signIn}>
             <Title>Hello, Friend!</Title>
             <Paragraph>
               Enter your personal details and start journey with us
             </Paragraph>
-            <GhostButton onClick={() => toggle(false)}>Sign Up</GhostButton>
+            <GhostButton onClick={() => updateToggle(false)}>Sign Up</GhostButton>
           </RightOverlayPanel>
         </Overlay>
       </OverlayContainer>
@@ -126,3 +129,4 @@ export default function Auth() {
 
   );
 }
+export default withOutAuth(Auth)
