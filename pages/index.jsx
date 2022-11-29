@@ -357,15 +357,15 @@ export default function Home() {
         <div>
           <h1 className={styles.promoContent}>
             if you want to play the FREE GAME just{" "}
-            <span className={styles.spanContents}>CLICK HERE!</span>
+            <a href="/gamelist" className={styles.spanContents}>CLICK HERE!</a>
             <br />
-            do the <span className={styles.spanContents}>
+            do the <a href="/user/auth" className={styles.spanContents}>
               REGISTER
-            </span> and{" "}
-            <span href="/" className={styles.spanContents}>
+            </a> and{" "}
+            <a href="/user/auth" className={styles.spanContents}>
               {" "}
               LOGIN{" "}
-            </span>
+            </a>
             first and you can enjoy THE GAME for FREE
           </h1>
         </div>

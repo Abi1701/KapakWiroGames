@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { doAuth } from '../../src/store/actions/authActions'
+import { doLogin } from '../../src/store/actions/authActions'
 import { useDispatch } from 'react-redux'
 import {
   Container,
@@ -20,6 +20,8 @@ import {
 export default function Auth() {
   const [signIn, toggle] = useState(true);
   const [value, setValue] = useState({
+    first_name:"",
+    last_name:"",
     username: "",
     email: "",
     password: "",
@@ -34,17 +36,22 @@ export default function Auth() {
       username: value.username,
       password: value.password,
     }
-    dispatch(doAuth(body))
+    dispatch(doLogin(body))
   }
-  const fetchRegister = async () => {
-    const body = {
-      username: value.username,
-      email: value.email,
-      password: value.password,
-      confirmPassword: value.confirmPassword,
+  const handleRegister = async () => {
+    try {
+      await axios.post('/api/auth/register', {
+        first_name: value.first_name,
+        last_name:value.last_name,
+        username: value.username,
+        email: value.email,
+        password: value.password,
+      })
+      toggle(true)
+    } catch (error) {
     }
-    dispatch(doAuth(body))
   }
+
 
 
   return (
@@ -52,6 +59,16 @@ export default function Auth() {
       <SignUpContainer signingIn={signIn}>
         <Form>
           <Title>Create Account</Title>
+          <Input
+            type="text"
+            placeholder="First Name"
+            onChange={handleChange("first_name")}
+          />
+          <Input
+            type="text"
+            placeholder="Last Name"
+            onChange={handleChange("last_name")}
+          />
           <Input
             type="text"
             placeholder="Username"
@@ -67,12 +84,7 @@ export default function Auth() {
             placeholder="Password"
             onChange={handleChange("password")}
           />
-          <Input
-            type="password"
-            placeholder="Confirm Password"
-            onChange={handleChange("confirmPassword")}
-          />
-          <Button onClick={fetchRegister}>Sign Up</Button>
+          <Button onClick={handleRegister}>Sign Up</Button>
         </Form>
       </SignUpContainer>
       <SignInContainer signingIn={signIn}>

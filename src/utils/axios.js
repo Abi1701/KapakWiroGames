@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { get } from 'lodash'
-import { API, NODE } from './env'
-axios.defaults.baseURL = API
+import { NODE } from './env'
+axios.defaults.baseURL = "http://localhost:4000/api"
 axios.defaults.timeout = 180000 // 30 seconds
 axios.interceptors.request.use(
   async (response) => {

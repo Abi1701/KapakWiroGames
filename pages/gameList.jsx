@@ -1,54 +1,81 @@
-import Image from "next/image";
-import Link from "next/link";
-import diceLogo from "./../public/assets/dice.logo.png"
-import rpsLogo from "./../public/assets/RPS.logo.png";
-import F1Logo from "./../public/assets/F1.png"
-import pesLogo from "././../public/assets/PES.png"
-import tennisLogo from "././../public/assets/tennis1.png"
-import birdLogo from "./../public/assets/angrybird.png"
+
 import style from "./../styles/gameList.module.css";
 
 export default function Gamelist() {
   return (
     <div className={style.root}>
-      <h1 className={style.choose}>Choose Game</h1>
-      <div className={style.grid}>
-        <Link href="/dicegame" className={style.card}>
-          <Image className={style.logo} src={diceLogo} alt="dice.logo" />
-          <h2>Dice Game &rarr;</h2>
-          <p className={style.p}>Play The Game And Be the Best Player</p>
-        </Link>
+      <div className={style.gridContainer}>
+      <h1 className={style.tittle}>Choose Game</h1>
+        <div className={style.grid}>
+          <a href="/dicegame" class={style.flipCard}>
+            <div class={style.flipCardInner}>
+              <div class={style.flipCardFront}>
+                <img className={style.pict} src="/assets/dice.logo.png" />
+                <h3 className={style.h3}>DICE</h3>
+              </div>
+              <div class={style.flipCardBack}>
+                <img src="/assets/dice.logo.png" />
+                <p className={style.caption}>Play The Game <br /> And Be the Best Player</p>
+              </div>
+            </div>
+          </a>
+          <a href="/dicegame" class={style.flipCard}>
+            <div class={style.flipCardInner}>
+              <div class={style.flipCardFront}>
+                <img className={style.pict} src="/assets/RPS.logo.png" />
+                <h3 className={style.h3}>RPS</h3>
+              </div>
+              <div class={style.flipCardBack}>
+                <img src="/assets/RPS.logo.png" />
+                <p className={style.caption}>Play The Game <br /> and PROVE you're The BEST</p>
+              </div>
+            </div>
+          </a>
+          </div>
+          <div className={style.grid2}>
+          <a href="/dicegame" class={style.flipCard}>
+            <div class={style.flipCardInner}>
+              <div class={style.flipCardFront}>
+                <img className={style.picts} src="/assets/CP.jpeg" />
+                <h3 className={style.h3}>Cyber Punk</h3>
+              </div>
+              <div class={style.flipCardBack}>
+                <img src="/assets/CP.jpeg" />
+                <p className={style.caption}> Click the Button for Get details </p>
+                <button className={style.buttonFlipCard}>Details</button>
+              </div>
+            </div>
+          </a>
+          <a href="/dicegame" class={style.flipCard}>
+            <div class={style.flipCardInner}>
+              <div class={style.flipCardFront}>
+                <img className={style.picts} src="/assets/angrybird.jpg" />
+                <h3 className={style.h3}>Angry Bird 2: Kill that PIG</h3>
+              </div>
+              <div class={style.flipCardBack}>
+                <img src="/assets/angrybird.jpg" />
+                <p className={style.caption}> Click the Button for Get details </p>
+                <button className={style.buttonFlipCard}>Details</button>
+              </div>
+            </div>
+          </a>
+          <a href="/dicegame" class={style.flipCard}>
+            <div class={style.flipCardInner}>
+              <div class={style.flipCardFront}>
+                <img className={style.picts} src="/assets/AC.png" />
+                <h3 className={style.h3}>Assasins Creed: Brother Hood</h3>
+              </div>
+              <div class={style.flipCardBack}>
+                <img src="/assets/AC.png" />
+                <p className={style.caption}> Click the Button for Get details </p>
+                <button className={style.buttonFlipCard}>Details</button>
+              </div>
+            </div>
+          </a>
+          </div>
 
-        <Link href="/rpsgame" className={style.card}>
-          <Image className={style.logo} src={rpsLogo} alt="RPS.logo" />
-          <h2>RPS &rarr;</h2>
-          <p className={style.p}>Play The Game And Be the Best Player</p>
-        </Link>
-
-        <a href="#" className={style.card}>
-          <Image className={style.logo} src={F1Logo} alt="F1" />
-          <h2>F1 Race &rarr;</h2>
-          <p className={style.p}>Play Game And Be the Best Player</p>
-        </a>
-
-        <a href="#" className={style.card}>
-          <Image className={style.logo} src={pesLogo} alt="PES" />
-          <h2>PES 2022 &rarr;</h2>
-          <p className={style.p}>Play Game And Be the Best Player</p>
-        </a>
-
-        <a href="#" className={style.card}>
-          <Image className={style.logo} src={tennisLogo} alt="tennis1" />
-          <h2>Tennis Clash &rarr;</h2>
-          <p className={style.p}>Play Game Collect  Points And Be the Best Player</p>
-        </a>
-
-        <a href="#" className={style.card}>
-          <Image className={style.logo} src={birdLogo} alt="angrybird" />
-          <h2>Angry Bird &rarr;</h2>
-          <p className={style.p}>Play Game And Be the Best Player</p>
-        </a>
       </div>
+
       <div class={style.customshapedividerbottom1668858171}>
         <svg
           data-name="Layer 1"

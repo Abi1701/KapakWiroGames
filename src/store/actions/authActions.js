@@ -1,3 +1,4 @@
+
 import axios from '../../utils/axios'
 import { GET_PROFILE } from '../type/authType'
 
@@ -12,10 +13,10 @@ export const getProfile = () => async (dispatch) => {
     console.log(error)
   }
 }
-export const doAuth = (body) => async () => {
+export const doLogin = (body) => async () => {
   try {
-    const { data } = await axios.post('/user/login', body)
-    localStorage.setItem('_q', data.data.token)
+    const { data } = await axios.post('/auth/login', body)
+    localStorage.setItem('_q', data.token)
     window.location.reload
   } catch (error) {}
 }
