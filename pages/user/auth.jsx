@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { changeToggle, doLogin } from '../../src/store/actions/authActions'
+import { changeToggle, doLogin, doRegister } from '../../src/store/actions/authActions'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   Container,
@@ -39,24 +39,21 @@ import withOutAuth from "../../src/withOutAuth";
     }
    await doLogin(body)
   }
-  const handleRegister = async () => {
-    try {
-      await axios.post('/api/auth/register', {
-        first_name: value.first_name,
-        last_name:value.last_name,
-        username: value.username,
-        email: value.email,
-        password: value.password,
-      })
-      toggle(true)
-    } catch (error) {
-    }
+
+  const fetchRegister = async () => {
+    console.log('click register')
+    const body = {
+    first_name: value.first_name,
+    last_name:value.last_name,
+    username: value.username,
+    email: value.email,
+    password: value.password,
+  }
+   await dispatch(doRegister(body))
   }
 const updateToggle =(data)=>{
   dispatch(changeToggle(data))
 }
-
-
   return (
     <Container>
       <SignUpContainer signingIn={signIn}>
@@ -73,9 +70,9 @@ const updateToggle =(data)=>{
             onChange={handleChange("last_name")}
           />
           <Input
-            type="text"
-            placeholder="Username"
-            onChange={handleChange("nama")}
+            type="username"
+            placeholder="username"
+            onChange={handleChange("username")}
           />
           <Input
             type="email"
@@ -87,7 +84,7 @@ const updateToggle =(data)=>{
             placeholder="Password"
             onChange={handleChange("password")}
           />
-          <Button onClick={handleRegister}>Sign Up</Button>
+          <Button onClick={fetchRegister}>Sign Up</Button>
         </Form>
       </SignUpContainer>
       <SignInContainer signingIn={signIn}>

@@ -4,7 +4,6 @@ import style from "./../styles/gameList.module.css";
 export default function Gamelist() {
   return (
     <div className={style.root}>
-      
       <div className={style.gridContainer}>
       <p className={style.tittle}>Choose Game</p>
         <div className={style.grid}>

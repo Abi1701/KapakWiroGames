@@ -1,11 +1,65 @@
-import styles from "../styles/Home.module.css";
 import { useSelector } from "react-redux";
 import { Verified, VerifiedUser } from "@mui/icons-material";
 import { Divider, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import Link from "next/link";
+import {
+  GameTittles,
+  Paragraf,
+  Container,
+  HomeContent,
+  BarContainer,
+  BigCard,
+  Border,
+  BotomContent,
+  ButtonGameList,
+  ButtonGameList1,
+  ContentFooter,
+  ContentFooter1,
+  Footer,
+  FooterContent,
+  FooterContent3,
+  FooterContents3,
+  FooterContents4,
+  GameList,
+  GameListBotomCard,
+  GameListColumn,
+  GameListColumnContent,
+  GameListColumnGame,
+  GameListColumnPicture,
+  GameListUserContent,
+  GameListContent,
+  GameListLanding,
+  GameListMiddle,
+  GameListPicture,
+  GameListRightContent,
+  GameListTittle,
+  GameColumnListTittle,
+  GameListUserPrice,
+  GameListUserTittle,
+  GameTittle,
+  HomeBar,
+  PictureBigCard,
+  PictureBotomCard,
+  PictureRightCard,
+  PromoContent,
+  PromoContents,
+  PromoPage,
+  RightContent,
+  SearchBar,
+  GamelistUser,
+  ButtonWrapper,
+  FlipCard,
+  InnerCard,
+  FrontCard,
+  BackCard,
+  ColumnFlipCard,
+  ColumnInnerCard,
+  ColumnFrontCard,
+  ColumnBackCard,
+} from "../src/component/homeStyled";
 
 export default function Home() {
-  const profile = useSelector((state) => state.authReducer.profile);
   const CssTextField = styled(TextField)({
     "& label.Mui-focused": {
       color: "black",
@@ -32,375 +86,221 @@ export default function Home() {
   });
   return (
     <>
-      <section className={styles.container}>
-        <div className={styles.barContainer}>
-          <div className={styles.searchBar}>
+      <Container>
+        <BarContainer>
+          <SearchBar>
             <CssTextField
               id="filled-search"
               label="Search field"
               type="search"
               variant="filled"
             />
-          </div>
-          <a href="" className={styles.homeBar}>
+          </SearchBar>
+          <HomeBar>
             <h1>Kapak Wiro</h1>
-          </a>
+          </HomeBar>
           <Divider
             sx={{ height: 25, mt: 3, ml: 2, mr: 2 }}
             color="white"
             orientation="vertical"
             flexItem
           />
-          <a href="" className={styles.homeBar}>
+          <HomeBar>
             <h1>Best Game</h1>
-          </a>
+          </HomeBar>
           <Divider
             sx={{ height: 25, mt: 3, ml: 2, mr: 2 }}
             color="white"
             orientation="vertical"
             flexItem
           />
-          <a href="#Gamelist" className={styles.homeBar}>
+          <HomeBar>
             <h1>Game List</h1>
-          </a>
-        </div>
-        <div className={styles.home}>
-          <a href="" className={styles.bigCard}>
-            <img
-              className={styles.pictureBigCard}
-              src="/assets/COD.jpg"
-              alt="RPS"
-            />
+          </HomeBar>
+        </BarContainer>
+        <HomeContent>
+          <BigCard>
+            <PictureBigCard src="/assets/COD.jpg" alt="RPS" />
             <p>Call of Duty: Modern Warfare</p>
-          </a>
-          <div className={styles.GamelistContentRight}>
-            <a href="https://nextjs.org/docs" className={styles.rightContent}>
-              <img
-                className={styles.pictureRightCard}
-                src="/assets/LOS.jpg"
-                alt="RPS"
-              />
+          </BigCard>
+          <GameListRightContent>
+            <RightContent>
+              <PictureRightCard src="/assets/LOS.jpg" alt="RPS" />
               <p>Last Of Us</p>
-            </a>
-            <a href="https://nextjs.org/docs" className={styles.rightContent}>
-              <img
-                className={styles.pictureRightCard}
-                src="/assets/DS.jpg"
-                alt="RPS"
-              />
+            </RightContent>
+            <RightContent href="https://nextjs.org/docs">
+              <PictureRightCard src="/assets/DS.jpg" alt="RPS" />
               <p>Dark Souls</p>
-            </a>
-            <a href="https://nextjs.org/docs" className={styles.rightContent}>
-              <img
-                className={styles.pictureRightCard}
-                src="/assets/GOW.jpg"
-                alt="RPS"
-              />
+            </RightContent>
+            <RightContent href="https://nextjs.org/docs">
+              <PictureRightCard src="/assets/GOW.jpg" alt="RPS" />
               <p>God of War</p>
-            </a>
-          </div>
-        </div>
-        <div className={styles.GamelistContentBotom}>
-          <a href="https://nextjs.org/docs" className={styles.botomContent}>
-            <img
-              className={styles.pictureBotomCard}
-              src="/assets/TW.jpg"
-              alt="RPS"
-            />
-            <p>The Witcher.</p>
-          </a>
-          <a href="https://nextjs.org/docs" className={styles.botomContent}>
-            <img
-              className={styles.pictureBotomCard}
-              src="/assets/CP.jpeg"
-              alt="RPS"
-            />
-            <p>CyberPunk.</p>
-          </a>
-          <a href="https://nextjs.org/docs" className={styles.botomContent}>
-            <img
-              className={styles.pictureBotomCard}
-              src="/assets/SW.png"
-              alt="RPS"
-            />
-            <p className={styles.gameContent}>Star Wars</p>
-          </a>
-        </div>
-      </section>
-      <section className={styles.Gamelist}>
-        <div className={styles.GamelistContent}>
-          <p className={styles.GamelistTittle}>
+            </RightContent>
+          </GameListRightContent>
+        </HomeContent>
+        <GameListBotomCard>
+          <BotomContent>
+            <PictureBotomCard src="/assets/AC.png" alt="RPS" />
+            <p>Assasins Creed Brother Hood</p>
+          </BotomContent>
+          <BotomContent>
+            <PictureBotomCard src="/assets/BF.jpg" alt="RPS" />
+            <p>BattleField : 2042</p>
+          </BotomContent>
+          <BotomContent>
+            <PictureBotomCard src="/assets/SW.png" alt="RPS" />
+            <p>Star Wars : Jedi Fallen Order</p>
+          </BotomContent>
+        </GameListBotomCard>
+      </Container>
+      <GameList>
+        <GameListContent>
+          <GameListTittle>
             Most Played by Users <VerifiedUser />{" "}
-          </p>
-          <div className={styles.GamelistUser}>
-            <a href="https://nextjs.org/docs" className={styles.cardGamelist}>
-              <h2>Cyber Punk</h2>
-              <img className={styles.picture} src="/assets/CP.jpeg" alt="RPS" />
-              <p>
-                {" "}
-                USER CHOICE <Verified />
-                <br />
-                <span>Rp. 850.000</span>
-              </p>
-              <button className={styles.buttonGamelist}>Buy Now</button>
-            </a>
-            <a href="https://nextjs.org/docs" className={styles.cardGamelist}>
-              <h2>The Witcher: Wild Hunt III</h2>
-              <img className={styles.picture} src="/assets/TW.jpg" alt="RPS" />
-              <p>
-                {" "}
-                USER CHOICE <Verified />
-                <br />
-                <span>Rp. 750.000</span>
-              </p>
-              <button className={styles.buttonGamelist}>Buy Now</button>
-            </a>
-          </div>
-        </div>
-      </section>
-      <section id="Gamelist" className={styles.rowGame}>
-        <div className={styles.GamelistColGame}>
-          <div className={styles.GamelistCol}>
-            <h1 className={styles.tittle}>Adventures RPG</h1>
-            <a
-              href="https://nextjs.org/docs"
-              className={styles.GamelistColContent}
-            >
-              <img
-                className={styles.GamelistPicture}
-                src="/assets/LOS.jpg"
-                alt="RPS"
-              />
-              <p>
-                Last Of Us
-                <br />
-                <span>Rp.500.000</span>
-                <br />
-                <button className={styles.buttonGamelist1}>Buy Now</button>
-              </p>
-            </a>
-            <a
-              href="https://nextjs.org/docs"
-              className={styles.GamelistColContent}
-            >
-              <img
-                className={styles.GamelistPicture}
-                src="/assets/DS.jpg"
-                alt="RPS"
-              />
-              <p>
-                Dark Souls
-                <br />
-                <span>Rp.500.000</span>
-                <br />
-                <button className={styles.buttonGamelist1}>Buy Now</button>
-              </p>
-            </a>
-            <a
-              href="https://nextjs.org/docs"
-              className={styles.GamelistColContent}
-            >
-              <img
-                className={styles.GamelistPicture}
-                src="/assets/GOW.jpg"
-                alt="RPS"
-              />
-              <p>
-                God of War
-                <br />
-                <span>Rp.500.000</span>
-                <br />
-                <button className={styles.buttonGamelist1}>Buy Now</button>
-              </p>
-            </a>
-          </div>
+          </GameListTittle>
+          <GamelistUser>
+            <FlipCard href="/dicegame">
+              <InnerCard>
+                <FrontCard>
+                  <GameListPicture src="/assets/dice.logo.png" />
+                  <h3>DICE</h3>
+                </FrontCard>
+                <BackCard>
+                  <p>
+                    Play The Game <br /> And Be the Best Player
+                  </p>
+                </BackCard>
+              </InnerCard>
+            </FlipCard>
+          </GamelistUser>
+        </GameListContent>
+      </GameList>
+      <GameListLanding>
+        <GameListColumnGame>
+          <GameListColumn>
+            <GameColumnListTittle>Adventures RPG</GameColumnListTittle>
+            <ColumnFlipCard href="/dicegame">
+              <ColumnInnerCard>
+                <ColumnFrontCard>
+                  <GameListPicture src="/assets/LOS.jpg" />
+                  <GameTittles>Last of Us</GameTittles>
+                </ColumnFrontCard>
+                <ColumnBackCard>
+                  <Paragraf>
+                    The Last of Us is a 2013 action-adventure game developed by
+                    Naughty Dog and published by Sony Computer Entertainment.
+                  </Paragraf>
+                  <ButtonWrapper>
+                    <ButtonGameList1>Game</ButtonGameList1>
+                    <ButtonGameList1>Detail</ButtonGameList1>
+                  </ButtonWrapper>
+                </ColumnBackCard>
+              </ColumnInnerCard>
+            </ColumnFlipCard>
+            <ColumnFlipCard href="/dicegame">
+              <ColumnInnerCard>
+                <ColumnFrontCard>
+                  <GameListPicture src="/assets/CP.jpeg" />
+                  <GameTittles>Cyberpunk 2077</GameTittles>
+                </ColumnFrontCard>
+                <ColumnBackCard>
+                  <Paragraf>
+                  Players assume the first-person perspective of a customisable
+                  mercenary known as V.
+                  </Paragraf>
+                  <ButtonWrapper>
+                    <ButtonGameList1>Game</ButtonGameList1>
+                    <ButtonGameList1>Detail</ButtonGameList1>
+                  </ButtonWrapper>
+                </ColumnBackCard>
+              </ColumnInnerCard>
+            </ColumnFlipCard>
+            <ColumnFlipCard href="/dicegame">
+              <ColumnInnerCard>
+                <ColumnFrontCard>
+                  <GameListPicture src="/assets/GOW.jpg" />
+                  <GameTittles>God of War Ragnarök</GameTittles>
+                </ColumnFrontCard>
+                <ColumnBackCard>
+                  <Paragraf>
+                  From Santa Monica Studio comes the sequel to the critically
+                  acclaimed God of War (2018).
+                  </Paragraf>
+                  <ButtonWrapper>
+                    <ButtonGameList1>Game</ButtonGameList1>
+                    <ButtonGameList1>Detail</ButtonGameList1>
+                  </ButtonWrapper>
+                </ColumnBackCard>
+              </ColumnInnerCard>
+            </ColumnFlipCard>
+          </GameListColumn>
           <Divider
-            sx={{ height: 800, mt: 3, ml: 2 }}
+            sx={{ height: 800, mt: 3, ml: 2, mr: 2 }}
             color="white"
             orientation="vertical"
             flexItem
           />
-          <div className={styles.GamelistCol1}>
-            <h1 className={styles.tittle}>Developer's Choices</h1>
-            <a
-              href="https://nextjs.org/docs"
-              className={styles.GamelistColContent}
-            >
-              <img
-                className={styles.GamelistPicture}
-                src="/assets/UC.jpg"
-                alt=""
-              />
-              <p>
-                Uncharted 4: A Thief's End
-                <br />
-                <span>Rp.500.000</span>
-                <br />
-                <button className={styles.buttonGamelist1}>Buy Now</button>
-              </p>
-            </a>
-            <a
-              href="https://nextjs.org/docs"
-              className={styles.GamelistColContent}
-            >
-              <img
-                className={styles.GamelistPicture}
-                src="/assets/AC.png"
-                alt="RPS"
-              />
-              <p>
-                Assassin's Creed Brotherhood
-                <br />
-                <span>Rp.500.000</span>
-                <br />
-                <button className={styles.buttonGamelist1}>Buy Now</button>
-              </p>
-            </a>
-            <a
-              href="https://nextjs.org/docs"
-              className={styles.GamelistColContent}
-            >
-              <img
-                className={styles.GamelistPicture}
-                src="/assets/SM.jpg"
-                alt="RPS"
-              />
-              <p>
-                Marvel's Spider-Man: Miles Morales
-                <br />
-                <span>Rp.500.000</span>
-                <br />
-                <button className={styles.buttonGamelist1}>Buy Now</button>
-              </p>
-            </a>
-          </div>
+          <GameListMiddle>
+            <GameColumnListTittle>Developer's Choices</GameColumnListTittle>
+          </GameListMiddle>
           <Divider
-            sx={{ height: 800, mt: 3, ml: 2 }}
+            sx={{ height: 800, mt: 3, ml: 2, mr: 2 }}
             color="white"
             orientation="vertical"
             flexItem
           />
-          <div className={styles.GamelistCol1}>
-            <h1 className={styles.tittle}>Actions</h1>
-            <a
-              href="https://nextjs.org/docs"
-              className={styles.GamelistColContent}
-            >
-              <img
-                className={styles.GamelistPicture}
-                src="/assets/SR.jpg"
-                alt="RPS"
-              />
-              <p>
-                Sky Rim
-                <br />
-                <span>Rp.500.000</span>
-                <br />
-                <button className={styles.buttonGamelist1}>Buy Now</button>
-              </p>
-            </a>
-            <a
-              href="https://nextjs.org/docs"
-              className={styles.GamelistColContent}
-            >
-              <img
-                className={styles.GamelistPicture}
-                src="/assets/BF.jpg"
-                alt="RPS"
-              />
-              <p>
-                Battle Field: 2042
-                <br />
-                <span>Rp.500.000</span>
-                <br />
-                <button className={styles.buttonGamelist1}>Buy Now</button>
-              </p>
-            </a>
-            <a
-              href="https://nextjs.org/docs"
-              className={styles.GamelistColContent}
-            >
-              <img
-                className={styles.GamelistPicture}
-                src="/assets/WZ.jpg"
-                alt="RPS"
-              />
-              <p>
-                Call of Duty WARZONE <br />
-                <span>Rp.500.000</span>
-                <br />
-                <button className={styles.buttonGamelist1}>Buy Now</button>
-              </p>
-            </a>
-          </div>
-        </div>
-      </section>
-      <section className={styles.promo}>
+          <GameListMiddle>
+            <GameColumnListTittle>Actions</GameColumnListTittle>
+          </GameListMiddle>
+        </GameListColumnGame>
+      </GameListLanding>
+      <PromoPage>
         <div>
-          <h1 className={styles.promoContent}>
+          <PromoContent>
             if you want to play the FREE GAME just{" "}
-            <a href="/gamelist" className={styles.spanContents}>CLICK HERE!</a>
+            <PromoContents>CLICK HERE!</PromoContents>
             <br />
-            do the <a href="/user/auth" className={styles.spanContents}>
-              REGISTER
-            </a> and{" "}
-            <a href="/user/auth" className={styles.spanContents}>
-              {" "}
-              LOGIN{" "}
-            </a>
+            do the <PromoContents>REGISTER</PromoContents> and{" "}
+            <PromoContents> LOGIN </PromoContents>
             first and you can enjoy THE GAME for FREE
-          </h1>
+          </PromoContent>
         </div>
-      </section>
-      <section className={styles.footer}>
-        <div className={styles.content}>
-          <div className={styles.content1}>
-            <a to="/" className={styles.contents1}>
-              MAIN
-            </a>
-            <a to="/work" className={styles.contents1}>
-              about
-            </a>
-            <a to="/feature" className={styles.contents1}>
-              game features
-            </a>
-            <a to="/requirement" className={styles.contents1}>
-              System requirements
-            </a>
-            <a to="/topscore" className={styles.contents1}>
-              quotes
-            </a>
-            <a className={styles.contents1}>
+      </PromoPage>
+      <Footer>
+        <ContentFooter>
+          <ContentFooter1>
+            <FooterContent>MAIN</FooterContent>
+            <FooterContent>about</FooterContent>
+            <FooterContent>game features</FooterContent>
+            <FooterContent>System requirements</FooterContent>
+            <FooterContent>quotes</FooterContent>
+            <FooterContent>
               <img src="/assets/facebook.svg" alt="facebook" />
-            </a>
-            <a className={styles.contents1}>
+            </FooterContent>
+            <FooterContent>
               <img src="/assets/twitter.svg" alt="twitter" />
-            </a>
-            <a className={styles.contents1}>
+            </FooterContent>
+            <FooterContent>
               <img src="/assets/youtube.svg" alt="youtube" />
-            </a>
-            <a className={styles.contents1}>
+            </FooterContent>
+            <FooterContent>
               <img src="/assets/twitch.svg" alt="twitch" />
-            </a>
-          </div>
-          <div className={styles.content2}>
-            <img
-              className={styles.border}
-              src="/assets/border.svg"
-              alt="border"
-            />
-          </div>
-          <div className={styles.content3}>
-            <h1 className={styles.contents3}>
+            </FooterContent>
+          </ContentFooter1>
+          <Border src="/assets/border.svg" alt="border" />
+          <FooterContent3>
+            <FooterContents3>
               {" "}
-              © 2018 Your Games, Inc. All Rights Reserved
-            </h1>
-            <h1 className={styles.contents31}>
+              © This Project made by Muhammad Nabil Amran and Mohamad Iqbal
+              Tamalaka <br />
+              and this web for education purpose only
+            </FooterContents3>
+            <FooterContents4>
               Privacy Policy | Terms of Services | Code of Conduct{" "}
-            </h1>
-          </div>
-        </div>
-      </section>
+            </FooterContents4>
+          </FooterContent3>
+        </ContentFooter>
+      </Footer>
     </>
   );
 }
