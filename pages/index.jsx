@@ -119,10 +119,30 @@ export default function Home() {
           </HomeBar>
         </BarContainer>
         <HomeContent>
-          <BigCard>
-            <PictureBigCard src="/assets/COD.jpg" alt="RPS" />
-            <p>Call of Duty: Modern Warfare</p>
-          </BigCard>
+          <CarouselContainer>
+            <Carousel showArrows={true} an width={"700px"}>
+              <CarouselContent>
+                <CarouselContentImage src="/assets/AC.png" alt="Asassins Creed" />
+                <p className="legend">Image 1</p>
+              </CarouselContent>
+              <CarouselContent>
+                <CarouselContentImage src="/assets/COD.jpg" alt="Call of Duty" />
+                <p className="legend">Image 2</p>
+              </CarouselContent>
+              <CarouselContent>
+                <CarouselContentImage src="/assets/SW.png" alt="Star Wars" />
+                <p className="legend">Image 3</p>
+              </CarouselContent>
+              <CarouselContent>
+                <CarouselContentImage src="/assets/TW.jpg" alt="the Witcher" />
+                <p className="legend">Image 4</p>
+              </CarouselContent>
+              <CarouselContent>
+                <CarouselContentImage src="/assets/WZ.jpg" alt="Warzone" />
+                <p className="legend">Image 5</p>
+              </CarouselContent>
+            </Carousel>
+          </CarouselContainer>
           <GameListRightContent>
             <RightContent>
               <PictureRightCard src="/assets/LOS.jpg" alt="RPS" />
