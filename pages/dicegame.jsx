@@ -1,6 +1,27 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import {Btn,Button,Button5,Button82edge,Button82front,Button82pushable,Button82shadow,Container,Dice1,Dice2,Div,Footer,H1,LinkTo,Player,Root,Text,TextLink,TextScore,Win} from "../src/component/diceStyled";
+import {
+  Btn,
+  Button,
+  Button5,
+  Button82edge,
+  Button82front,
+  Button82pushable,
+  Button82shadow,
+  Container,
+  Dice1,
+  Dice2,
+  Div,
+  Footer,
+  H1,
+  LinkTo,
+  Player,
+  Root,
+  Text,
+  TextLink,
+  TextScore,
+  Win,
+} from "../src/component/styledDiceGame";
 
 export default function DiceGame() {
   // const {id} = useParams()
@@ -44,8 +65,8 @@ export default function DiceGame() {
     }
   };
   return (
-      <Root>
-        <Container>
+    <Root>
+      <Container>
         <Win>
           <H1>{win}</H1>
         </Win>
@@ -58,7 +79,13 @@ export default function DiceGame() {
               <H1>Score : </H1>
             </TextScore>
             <Dice1>
-              <Image width={300} height={300} src={img.rand1} alt="dice1" name="dice1" />
+              <Image
+                width={300}
+                height={300}
+                src={img.rand1}
+                alt="dice1"
+                name="dice1"
+              />
             </Dice1>
           </Div>
           <Div>
@@ -75,23 +102,19 @@ export default function DiceGame() {
         </Player>
         <Button onClick={() => clickButton()}>
           <Btn>
-                <Button5>
-                <Button82pushable>
-                  <Button82shadow>
-                    
-                  </Button82shadow>
-                  <Button82edge>
-                    
-                  </Button82edge>
-                  <Button82front>
-                    <H1> Roll The Dice </H1>
-                  </Button82front>
+            <Button5>
+              <Button82pushable>
+                <Button82shadow></Button82shadow>
+                <Button82edge></Button82edge>
+                <Button82front>
+                  <H1> Roll The Dice </H1>
+                </Button82front>
               </Button82pushable>
-                </Button5>
+            </Button5>
           </Btn>
         </Button>
         <Footer>www 🎲 App Binar 🎲 com</Footer>
-        </Container>
-      </Root>
+      </Container>
+    </Root>
   );
 }

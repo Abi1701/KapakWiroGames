@@ -11,7 +11,7 @@ import {
   MiddleContent, PlayerChoice,
   PlayerChoices,
   PlayerResult,
-} from "../styles/styledRps";
+} from "../src/component/styledRps";
 import Batu from "./../public/assets/Batu.svg";
 import Gunting from "./../public/assets/Gunting.svg";
 import Kertas from "./../public/assets/Kertas.svg";
