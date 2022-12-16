@@ -17,6 +17,7 @@ import {
   Paragraph,
   RightOverlayPanel,
 } from "../../src/component/styled";
+import withOuthAuth from "../../src/withouthAuth";
  function Auth() {
   const signIn = useSelector((state) => state.authReducer.toggle)
   const [value, setValue] = useState({
@@ -123,4 +124,4 @@ const updateToggle =(data)=>{
     </Container>
   );
 }
-export default Auth
+export default withOuthAuth(Auth)

@@ -17,7 +17,8 @@ export const getProfile = () => async (dispatch) => {
 export const doLogin = async(body) => {
   try {
     const { data } = await axios.post('/login', body)
-    localStorage.setItem('_q', data.token)
+  
+    localStorage.setItem('_q', data.data.accessToken)
     window.location.reload()
   } catch (error) {}
 }
