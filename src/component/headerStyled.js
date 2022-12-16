@@ -19,7 +19,7 @@ margin-left:2rem;
 `
 export const NavContainerContent = styled.div`
 display:flex;
-margin-left:38rem;
+margin-left:45rem;
 `
 export const NavContent = styled.div`
 text-decoration: none;

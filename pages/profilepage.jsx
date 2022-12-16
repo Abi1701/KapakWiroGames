@@ -1,7 +1,7 @@
 import FileUploadIcon from "@mui/icons-material/FileUpload";
+import Image from "next/image";
 import React, { useState } from "react";
-import Table from "../src/component/table";
-import style from "./../styles/profilePage.module.css";
+import { ContainerPage, InputContainer, ProfileContent, ProfileContentInner, ProfileContentInput, UpdateImage, UpdateImageContainer } from "../src/component/profilePage";
 
 export default function profilePage() {
   const [isUpload, setIsUpload] = useState(false);
@@ -17,8 +17,20 @@ export default function profilePage() {
     console.log('clicked')
   };
   return (
-    <div className={style.main}>
-      <div className={style.root}>
+    <ContainerPage>
+      <ProfileContent>
+      <ProfileContentInner>
+      <Image width={100} height={100} src="/assets/drStrange.png" alt="Avatar" />
+          <InputContainer>
+          <ProfileContentInput placeholder="Username" />
+          <ProfileContentInput placeholder="Email" />
+          <UpdateImageContainer>
+          <FileUploadIcon type="file" Name="Avatar" />
+          </UpdateImageContainer>
+          </InputContainer>
+      </ProfileContentInner>
+      </ProfileContent>
+      {/* <div className={style.root}>
         <div className={style.card}>
           <div className={style.cardProfile}>
             <label className={style.label}>
@@ -51,7 +63,6 @@ export default function profilePage() {
             </button>
           </div>
           <div className={style.table}>
-            <Table />
           </div>
         </div>
         <div className={style.cardMissi}>
@@ -73,7 +84,7 @@ export default function profilePage() {
             class={style.shapefill}
           ></path>
         </svg>
-      </div>
-    </div>
+      </div> */}
+    </ContainerPage>
   );
 }
