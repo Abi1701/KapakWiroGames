@@ -16,6 +16,9 @@ export default function profilePage() {
     }, 2000);
     console.log('clicked')
   };
+  const updateImages =(data)=>{
+    dispatch(uploadImages(data))
+  }
   return (
     <ContainerPage>
       <ProfileContent>
