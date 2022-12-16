@@ -41,7 +41,6 @@ import withOutAuth from "../../src/withOutAuth";
   }
 
   const fetchRegister = async () => {
-    console.log('click register')
     const body = {
     first_name: value.first_name,
     last_name:value.last_name,

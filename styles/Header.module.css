@@ -1,6 +1,7 @@
 .nav{
   background-color: black;
   display: flex;
+  min-width: 1440px;
 }
 .slidebar{
   color: white;
@@ -71,4 +72,18 @@
   font-family: 'Roboto Slab', serif;
   cursor: pointer;
   margin-left: 60rem;
+}
+@media only screen and (max-width: 768px) {
+  .navContents{
+    color: white;
+    margin-left: 62rem;
+    position: absolute;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .navContents{
+    color: white;
+    margin-left: 62rem;
+    position: absolute;
+  }
 }

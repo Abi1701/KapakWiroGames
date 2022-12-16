@@ -1,25 +1,33 @@
 import styled from "styled-components";
-
 //page1
 export const Container = styled.section`
 background-color: black;
-height: 150vh;
-width: 100%;
+height: auto;
+width:100%;
 background-size: cover;
+min-width: 1440px;
+@media (max-width: 768px) {
+  height: auto;
+  width:100%;
+  background-size: cover;
+    }
 `
-
 export const BarContainer = styled.div`
 display: flex;
 position: absolute;
-padding-left: 5rem;
+padding-left: 9rem;
+padding-top:3rem;
+@media (max-width: 768px) {
+    }
 `
-
 export const HomeContent = styled.div`
-display: flex;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in-out;
+`
+export const HomeContentTittle = styled.h1`
 
 `
 export const SearchBar = styled.div`
@@ -31,6 +39,9 @@ margin-right: 2rem;
 margin-top: 0.5rem;
 opacity: 60%;
 transition:box-shadow 0.5s ease-in-out;
+@media (max-width: 768px) {
+display:none;
+    }
 &:hover{
   display: flex;
   flex-direction: column;
@@ -54,8 +65,8 @@ transition:box-shadow 0.5s ease-in-out;
   border-radius: 15px;
   background-color: white;
   box-shadow: rgb(240, 240, 240) 0px 5px, rgb(210, 210, 210) 0px 10px, rgb(180, 180, 180) 0px 15px, rgb(120, 120, 120) 0px 20px, rgb(90, 90, 90) 0px 25px;
-
 }
+
 `
 export const HomeBar = styled.div`
   color: white;
@@ -69,49 +80,77 @@ export const HomeBar = styled.div`
     opacity: 100%;
   }
 `
-export const BigCard = styled.a`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: 2rem;
-  padding: 1.5rem;
+export const BigCard = styled.div`
+text-align: center;
+color: inherit;
+text-decoration: none;
+transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in;
+width: 700px;
+height: 150px;
+border-radius: 15px;
+padding-botom:2rem;
+
+&:hover{
+  text-decoration: none;
+  color: white;
+  border-radius: 15px;
+  background-color: black;
+  object-fit:cover;
+}&:focus{
+  text-decoration: none;
+  color: white;
+  border-radius: 15px;
+  background-color: black;
+}&:active{
+  text-decoration: none;
+  color: white;
+  border-radius: 15px;
+  background-color: black;
+}
+`
+export const BigCardTittle = styled.h1`
+
+`
+export const GameListBotomCard = styled.div`
+  width: 70%;
+  border-radius: 15px;
+  display:flex;
+  flex-direction:row;
+  margin-left:3rem;
+  align-items:baseline;
+  margin-botom:2rem;
+  padding-botom:2rem;
+  gap:50px;
+`
+export const BotomContent = styled.div`
   text-align: center;
   color: inherit;
   text-decoration: none;
-  transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in-out;
-  width: 500px;
-  height: 350px;
+  transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in;
+  width: 300px;
+  height: 150px;
   border-radius: 15px;
+  padding-botom:2rem;
+  
   &:hover{
-    display: flex;
-    flex-direction: column;
+    text-decoration: none;
     color: white;
     border-radius: 15px;
-    width: 500px;
-    height: 350px;
     background-color: black;
   }&:focus{
-    display: flex;
-    flex-direction: column;
+    text-decoration: none;
     color: white;
     border-radius: 15px;
-    width: 500px;
-    height: 350px;
     background-color: black;
   }&:active{
-    display: flex;
-    flex-direction: column;
+    text-decoration: none;
     color: white;
     border-radius: 15px;
-    width: 500px;
-    height: 350px;
     background-color: black;
   }
 `
-export const PictureBigCard = styled.img`
-  margin-top: 2rem;
-  width: 80%;
+export const PictureBotomCard = styled.img`
+  width: 70%;
   border-radius: 15px;
 `
 export const GameListRightContent = styled.div`
@@ -124,9 +163,10 @@ export const RightContent = styled.div`
   color: inherit;
   text-decoration: none;
   transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in;
-  width: 300px;
-  height: 150px;
+  width: 400px;
+  height: 250px;
   border-radius: 15px;
+  padding-top:4rem;
   &:hover{
     text-decoration: none;
     color: white;
@@ -149,63 +189,50 @@ export const PictureRightCard = styled.img`
   width: 50%;
   border-radius: 15px;
 ` 
-export const GameListBotomCard = styled.div`
-  margin-top: 1rem;
-  width: 70%;
-  border-radius: 15px;
+export const CarouselContainer = styled.div`
+width:50%;
+border-radius:15px;
+padding-top:5rem;
+display:flex;
+justify-content:center;
+align-items:center;
+@media (max-width: 768px) {
+  width:50%;
+    }
+@media (max-width: 1024px) {
+  width:50%;
+    }
+@media (min-width: 2560px) {
+  width:30%;
   display:flex;
-  flex-direction:row;
-  margin-left:3rem;
-  align-items:baseline;
+  justify-content:center;
+  align-items:center;
+    }
 `
-export const BotomContent = styled.div`
-  margin-top: 1rem;
-  text-align: center;
-  color: inherit;
-  text-decoration: none;
-  transition: color 1s ease, border-color 0.7s ease,background-color 0.5s ease-in;
-  width: 300px;
-  height: 150px;
-  border-radius: 15px;
-  &:hover{
-    text-decoration: none;
-    color: white;
-    border-radius: 15px;
-    background-color: black;
-  }&:focus{
-    text-decoration: none;
-    color: white;
-    border-radius: 15px;
-    background-color: black;
-  }&:active{
-    text-decoration: none;
-    color: white;
-    border-radius: 15px;
-    background-color: black;
-  }
-`
-export const PictureBotomCard = styled.img`
-  margin-top: 1rem;
-  width: 70%;
-  border-radius: 15px;
-`
-export const GameTittle = styled.p`
+export const CarouselContent = styled.div`
+border-radius:15px;
+width:100%;
 
+`
+export const CarouselContentImage = styled.img`
+border-radius:15px;
 `
 //page2 = userChoice
 export const GameList = styled.section`
-  background-color: #321104;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='46' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='100' y1='33' x2='100' y2='-3'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='100' y1='135' x2='100' y2='97'%3E%3Cstop offset='0' stop-color='%23000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000' stop-opacity='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%232f0e00' %3E%3Crect x='100' width='100' height='100'/%3E%3Crect y='100' width='100' height='100'/%3E%3C/g%3E%3Cg fill-opacity='1'%3E%3Cpolygon fill='url(%23a)' points='100 30 0 0 200 0'/%3E%3Cpolygon fill='url(%23b)' points='100 100 0 130 0 100 200 100 200 130'/%3E%3C/g%3E%3C/svg%3E");
+background-image:  linear-gradient(30deg, #040303 12%, transparent 12.5%, transparent 87%, #040303 87.5%, #040303), linear-gradient(150deg, #040303 12%, transparent 12.5%, transparent 87%, #040303 87.5%, #040303), linear-gradient(30deg, #040303 12%, transparent 12.5%, transparent 87%, #040303 87.5%, #040303), linear-gradient(150deg, #040303 12%, transparent 12.5%, transparent 87%, #040303 87.5%, #040303), linear-gradient(60deg, rgba(4,3,3,0.5) 25%, transparent 25.5%, transparent 75%, rgba(4,3,3,0.5) 75%, rgba(4,3,3,0.5)), linear-gradient(60deg, rgba(4,3,3,0.5) 25%, transparent 25.5%, transparent 75%, rgba(4,3,3,0.5) 75%, rgba(4,3,3,0.5));
+background-size: 64px 112px;
+background-position: 0 0, 0 0, 32px 56px, 32px 56px, 0 0, 32px 56px;
+background-color: #1c1b1b;
   background-attachment: fixed;
   height: 90vh;
   background-size: cover;
+  min-width: 1440px;
 `
 export const FlipCard = styled.div`
 background-color: transparent;
-width: 250px;
-height: 250px;
+width: 400px;
+height: 400px;
 perspective: 500px;
-margin-top: 1rem;
 justify-content: space-around;
 margin-right: 2rem;
 `
@@ -314,14 +341,16 @@ height: auto;
 //page3 = column GameList Landing
 export const GameListLanding = styled.section`
 background-color: black;
-height: 150vh;
+height: auto;
 background-size: cover;
+min-width: 1440px;
 `
 export const GameListColumnGame = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: center;
 align-items: baseline;
+gap:100px;
 `
 export const ColumnFlipCard = styled.div`
 background-color: transparent;
@@ -448,7 +477,7 @@ export const ButtonWrapper = styled.div`
 position:relative;
 padding-bottom:1rem;
 padding-left:5rem;
-margin-top:5rem;
+margin-top:3rem;
 &:hover{
   color: black;
 }
@@ -485,16 +514,18 @@ border-radius: 15px;
 
 //page4 = promo page
 export const PromoPage = styled.section`
-height: 100vh;
+height: auto;
 background-color: black;
 background-size: cover;
 display: flex;
+min-width: 1440px;
 `
-export const PromoContent = styled.h1`
+export const PromoContentContainer = styled.h1`
+margin-left:25%;
+`
+export const PromoContent = styled.p`
 color: white;
 text-align: center;
-margin-left: 13rem;
-margin-top: 13rem;
 `
 export const PromoContents = styled.span`
 color: red;
@@ -514,10 +545,15 @@ height: 35vh;
 background-color: black;
 background-size: cover;
 display: flex;
+min-width: 1440px;
 `
 export const ContentFooter = styled.div`
 color: white;
 position: absolute;
+@media (max-width: 768px) {
+  flex-direction: column;
+  position: relative;
+}
 ` 
 export const ContentFooter1 = styled.div`
 padding-top: 5%;
@@ -533,11 +569,28 @@ text-transform: uppercase;
 color: #FFFFFF;
 margin-left: 10rem;
 flex-direction: row;
+@media (max-width: 768px) {
+  margin-left: 1rem;
+  overflow:hidden;
+}
 `
+
 export const FooterContent = styled.a`
 text-decoration: none;
 color: white;
 margin-left: 4rem;
+@media (max-width: 768px) {
+  margin-left: 2rem;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+@media (max-width: 1024px) {
+  margin-left: 3rem;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
 `
 export const Border = styled.img`
 margin-left: 4rem;
@@ -564,7 +617,10 @@ line-height: 16px;
 text-align: right;
 letter-spacing: 0.1em;
 text-transform: uppercase;
-margin-left: 32.2rem;
+margin-left: 22.2rem;
 color: #FFFFFF;
+@media (max-width: 1024px) {
+  margin-left: 25 rem;
+}
 `
 
