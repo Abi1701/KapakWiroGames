@@ -17,7 +17,7 @@ import Gunting from "./../public/assets/Gunting.svg";
 import Kertas from "./../public/assets/Kertas.svg";
 
 export default function Game() {
-  const profile = useSelector((state) => state.authReducer.profile)
+  const userProfile = useSelector((state) => state.authReducer.profile)
   const [userChoice, setUserChoice] = useState("");
   const [img, setImg] = useState({
     random: require("../public/assets/Batu.svg"),
@@ -86,7 +86,7 @@ export default function Game() {
   return (
     <Container>
       <PlayerResult>
-        <H1 profile={profile?.username}> Player: {userPoints} </H1>
+        <H1 profile={userProfile?.username}> Player: {userPoints} </H1>
       </PlayerResult>
       {choices.map((choice, index) => (
         <PlayerChoice
