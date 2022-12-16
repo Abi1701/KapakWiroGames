@@ -2,6 +2,7 @@ import FileUploadIcon from "@mui/icons-material/FileUpload";
 import React, { useState } from "react";
 import Table from "../src/component/table";
 import style from "./../styles/profilePage.module.css";
+import { uploadImages } from "../src/store/actions/authActions"
 
 export default function profilePage() {
   const [isUpload, setIsUpload] = useState(false);
@@ -16,6 +17,9 @@ export default function profilePage() {
     }, 2000);
     console.log('clicked')
   };
+  const updateImages =(data)=>{
+    dispatch(uploadImages(data))
+  }
   return (
     <div className={style.main}>
       <div className={style.root}>

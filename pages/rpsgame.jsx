@@ -1,17 +1,27 @@
-import { ArrowBackIos, Refresh } from "@mui/icons-material";
-import React, { useState, useEffect } from "react";
-import * as Components from "./../styles/styled";
-import Batu from "./../public/assets/Batu.png";
-import Gunting from "./../public/assets/Gunting.png";
-import Kertas from "./../public/assets/Kertas.png";
-import Image from "next/image"
-import Link from "next/link"
-import { useParams } from "react-router-dom";
-import axios from './../src/utility/axios'
+import Image from "next/image";
+import { Refresh } from "@mui/icons-material";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  ComChoice,
+  ComChoices,
+  ComResult,
+  Container,
+  H1,
+  MiddleContent, PlayerChoice,
+  PlayerChoices,
+  PlayerResult,
+} from "../styles/styledRps";
+import Batu from "./../public/assets/Batu.svg";
+import Gunting from "./../public/assets/Gunting.svg";
+import Kertas from "./../public/assets/Kertas.svg";
 
 export default function Game() {
-  const {id} = useParams()
+  const profile = useSelector((state) => state.authReducer.profile)
   const [userChoice, setUserChoice] = useState("");
+  const [img, setImg] = useState({
+    random: require("../public/assets/Batu.svg"),
+  });
   const [computerChoice, setComputerChoice] = useState("Batu");
   const [userPoints, setUserPoints] = useState(0);
   const [computerPoints, setComputerPoints] = useState(0);
@@ -27,99 +37,88 @@ export default function Game() {
 
   const generateComputerChoice = () => {
     const randomChoice = choices[Math.floor(Math.random() * choices.length)];
+    setImg({
+      random: require(`../public/assets/${randomChoice}.svg`),
+    });
     setComputerChoice(randomChoice);
   };
-
-  console.log(computerChoice);
   const reset = () => {
     window.location.reload();
   };
 
   useEffect(() => {
-    async function fetchData(){
+    async function fetchData() {
       const comboMoves = userChoice + computerChoice;
-    if (userPoints <= 4 && computerPoints <= 4) {
-      if (
-        comboMoves === "GuntingKertas" ||
-        comboMoves === "BatuGunting" ||
-        comboMoves === "KertasBatu"
-      ) {
-        const updatedUserPoints = userPoints + 1;
-        setUserPoints(updatedUserPoints);
-        setTurnResult("User Win!");
-        await axios.post(`/score/create/${id}`, {
-          score: "WIN"
-        })
-        if (updatedUserPoints === 1) {
-          setResult("User Wins");
-          const gameOff = true;
-          setGameOver(gameOff);
+      if (userPoints <= 10 && computerPoints <= 10) {
+        if (
+          comboMoves === "GuntingKertas" ||
+          comboMoves === "BatuGunting" ||
+          comboMoves === "KertasBatu"
+        ) {
+          const updatedUserPoints = userPoints + 1;
+          setUserPoints(updatedUserPoints);
+          setTurnResult("User Win!");
+          if (updatedUserPoints === 1) {
+            setResult("User Wins");
+            const gameOff = true;
+            setGameOver(gameOff);
+          }
+        } else if (
+          comboMoves === "KertasGunting" ||
+          comboMoves === "GuntingBatu" ||
+          comboMoves === "KertasBatu"
+        ) {
+          const updatedComputerPoints = computerPoints + 1;
+          setComputerPoints(updatedComputerPoints);
+          setTurnResult("Computer Win!");
+          if (updatedComputerPoints === 1) {
+            setResult("Computer Wins");
+            const gameOff = true;
+            setGameOver(gameOff);
+          }
+        } else {
+          setTurnResult("Draw");
         }
-      } else if (
-        comboMoves === "KertasGunting" ||
-        comboMoves === "GuntingBatu" ||
-        comboMoves === "KertasBatu"
-      ) {
-        const updatedComputerPoints = computerPoints + 1;
-        setComputerPoints(updatedComputerPoints);
-        setTurnResult("Computer Win!");
-        await axios.post(`/score/create/${id}`, {
-          score: "LOSE",
-        });
-        if (updatedComputerPoints === 1) {
-          setResult("Computer Wins");
-          const gameOff = true;
-          setGameOver(gameOff);
-        }
-      } else {
-        setTurnResult("Draw");
-        await axios.post(`/score/create/${id}`, {
-          score: "DRAW",
-        });
       }
-    }}
-    fetchData();}, [computerChoice, userChoice]);
+    }
+    fetchData();
+  }, [computerChoice, userChoice]);
   return (
-    <>
-      <Components.Root>
-        <Components.Navbar>
-          <Components.NavbarContents1>
-            <Link href="#">
-            <ArrowBackIos fontSize="large"/>
-            </Link>
-          </Components.NavbarContents1>
-          <Components.NavbarContents2><Link href="#">Home Page</Link></Components.NavbarContents2>
-        </Components.Navbar>
-        <Components.PlayerResult><h1> Player: {userPoints} </h1></Components.PlayerResult>
-        {choices.map((choice, index) => (
-          <Components.PlayerChoice
-            key={index}
-            onClick={() => handleClick(choice)}
-            disabled={gameOver}
-          >
-            <Components.PlayerChoices>
-              <Image src={Gunting} width={100} alt="Gunting" name="Gunting" />
-            </Components.PlayerChoices>
-            <Components.PlayerChoices>
-              <Image src={Batu} width={100} alt="Batu" name="Batu" />
-            </Components.PlayerChoices>
-            <Components.PlayerChoices>
-              <Image src={Kertas} width={100} alt="Kertas" name="Kertas" />
-            </Components.PlayerChoices>
-          </Components.PlayerChoice>
-        ))}
-        <Components.MiddleContent>{turnResult}</Components.MiddleContent>
-        <Components.MiddleContent2>{result}</Components.MiddleContent2>
-        <Components.ComResult><h1> Computer: {computerPoints} </h1></Components.ComResult>
-        <Components.ComChoice>
-          <Components.ComChoices> {computerChoice} </Components.ComChoices>
-        </Components.ComChoice>
-        {gameOver && (
-          <Components.Refresh onClick={() => reset()}>
-            <Refresh fontSize="large" />
-          </Components.Refresh>
-        )}
-      </Components.Root>
-    </>
+    <Container>
+      <PlayerResult>
+        <H1 profile={profile?.username}> Player: {userPoints} </H1>
+      </PlayerResult>
+      {choices.map((choice, index) => (
+        <PlayerChoice
+          key={index}
+          onClick={() => handleClick(choice)}
+          disabled={gameOver}
+        >
+          <PlayerChoices>
+            <Image src={Gunting} width={100} alt="Gunting" name="Gunting" />
+          </PlayerChoices>
+          <PlayerChoices>
+            <Image src={Batu} width={100} alt="Batu" name="Batu" />
+          </PlayerChoices>
+          <PlayerChoices>
+            <Image src={Kertas} width={100} alt="Kertas" name="Kertas" />
+          </PlayerChoices>
+        </PlayerChoice>
+      ))}
+      <MiddleContent>{turnResult}</MiddleContent>
+      {/* <MiddleContent2>{result}</MiddleContent2> */}
+      <ComResult>
+        <H1> Computer: {computerPoints} </H1>
+      </ComResult>
+      <ComChoice>
+        <Image src={img.random} alt="Batu" name="Batu" />
+        <ComChoices> {computerChoice} </ComChoices>
+      </ComChoice>
+      {gameOver && (
+        <Refresh onClick={() => reset()}>
+          <Refresh fontSize="large" />
+        </Refresh>
+      )}
+    </Container>
   );
 }

@@ -2,7 +2,8 @@ import { VerifiedUser } from "@mui/icons-material";
 import { Divider, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
-import {BorderImg} from "../public/assets/border.svg"
+import Link from "next/link";
+import { BorderImg } from "../public/assets/border.svg";
 import {
   GameTittles,
   Paragraf,
@@ -154,46 +155,50 @@ export default function Home() {
             Most Played by Users <VerifiedUser />{" "}
           </GameListTittle>
           <GamelistUser>
-            <FlipCard href="/dicegame">
-              <InnerCard>
-                <FrontCard>
-                  <Image
-                    width={300}
-                    height={300}
-                    src="/assets/dice.logo.png"
-                    alt="dice"
-                  />
-                  <h3>DICE</h3>
-                </FrontCard>
-                <BackCard>
-                  <Paragraf>
-                    Play The Game <br /> And Be the Best Player
-                  </Paragraf>
-                </BackCard>
-              </InnerCard>
-            </FlipCard>
-            <FlipCard href="/dicegame">
-              <InnerCard>
-                <FrontCard>
-                  <Image
-                    width={300}
-                    height={300}
-                    src="/assets/RPS.logo.png"
-                    alt="RPS"
-                  />
-                  <h3>Rock Papper Scissors</h3>
-                </FrontCard>
-                <BackCard>
-                  <Paragraf>
-                    Backgammon is one of the oldest games in the world with
-                    roots going back over 5,000 years to ancient Persia and
-                    Mesopotamia. It is the favorite game of the famous investor
-                    Warren Buffet. The game combines the elements of both luck
-                    and skill.
-                  </Paragraf>
-                </BackCard>
-              </InnerCard>
-            </FlipCard>
+            <Link href="/dicegame">
+              <FlipCard>
+                <InnerCard>
+                  <FrontCard>
+                    <Image
+                      width={300}
+                      height={300}
+                      src="/assets/dice.logo.png"
+                      alt="dice"
+                    />
+                    <h3>DICE</h3>
+                  </FrontCard>
+                  <BackCard>
+                    <Paragraf>
+                      Play The Game <br /> And Be the Best Player
+                    </Paragraf>
+                  </BackCard>
+                </InnerCard>
+              </FlipCard>
+            </Link>
+            <Link href="/rpsGame">
+              <FlipCard>
+                <InnerCard>
+                  <FrontCard>
+                    <Image
+                      width={300}
+                      height={300}
+                      src="/assets/RPS.logo.png"
+                      alt="RPS"
+                    />
+                    <h3>Rock Papper Scissors</h3>
+                  </FrontCard>
+                  <BackCard>
+                    <Paragraf>
+                      Backgammon is one of the oldest games in the world with
+                      roots going back over 5,000 years to ancient Persia and
+                      Mesopotamia. It is the favorite game of the famous
+                      investor Warren Buffet. The game combines the elements of
+                      both luck and skill.
+                    </Paragraf>
+                  </BackCard>
+                </InnerCard>
+              </FlipCard>
+            </Link>
           </GamelistUser>
         </GameListContent>
       </GameList>
@@ -443,19 +448,46 @@ export default function Home() {
             <FooterContent>System requirements</FooterContent>
             <FooterContent>quotes</FooterContent>
             <FooterContent>
-              <Image width={20} height={20} src="/assets/facebook.svg" alt="facebook" />
+              <Image
+                width={20}
+                height={20}
+                src="/assets/facebook.svg"
+                alt="facebook"
+              />
             </FooterContent>
             <FooterContent>
-              <Image width={20} height={20} src="/assets/twitter.svg" alt="twitter" />
+              <Image
+                width={20}
+                height={20}
+                src="/assets/twitter.svg"
+                alt="twitter"
+              />
             </FooterContent>
             <FooterContent>
-              <Image width={20} height={20} src="/assets/youtube.svg" alt="youtube" />
+              <Image
+                width={20}
+                height={20}
+                src="/assets/youtube.svg"
+                alt="youtube"
+              />
             </FooterContent>
             <FooterContent>
-              <Image width={20} height={20} src="/assets/twitch.svg" alt="twitch" />
+              <Image
+                width={20}
+                height={20}
+                src="/assets/twitch.svg"
+                alt="twitch"
+              />
             </FooterContent>
           </ContentFooter1>
-          <Border><Image width={1200} height={10} src="/assets/border.svg" alt="border" /></Border>
+          <Border>
+            <Image
+              width={1200}
+              height={10}
+              src="/assets/border.svg"
+              alt="border"
+            />
+          </Border>
           <FooterContent3>
             <FooterContents3>
               {" "}

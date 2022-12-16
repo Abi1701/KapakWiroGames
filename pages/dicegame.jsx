@@ -1,11 +1,10 @@
-import { useParams } from "react-router-dom";
-import axios from '../src/utility/axios'
-import React, { useState } from "react";
 import Image from "next/image";
+import React, { useState } from "react";
 import * as Components from "./../styles/styledDiceGame";
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function DiceGame() {
-  const {id} = useParams()
+  const profile = useSelector((state) => state.authReducer.profile)
   const [img, setImg] = useState({
     rand1: require("./../public/assets/dice6.png"),
     rand2: require("./../public/assets/dice6.png"),
@@ -28,21 +27,12 @@ export default function DiceGame() {
       if (score && score2) setWin("🚩Player 1 menang");
       setScore(updateScore);
       setScore2(updateScore2 - 1);
-       await axios.post(`/score/create/${id}`, {
-        score: "WIN"
-      })
     } else if (randomNumber1 < randomNumber2) {
       setWin("Player 2 menang🚩");
       setScore(updateScore - 1);
       setScore2(updateScore2);
-      await axios.post(`/score/create/${id}`, {
-        score: "LOSE",
-      });
     } else {
       setWin("Seri");
-      await axios.post(`/score/create/${id}`, {
-        score: "DRAW",
-      });
     }
   };
   return (
@@ -54,7 +44,7 @@ export default function DiceGame() {
         <Components.Player>
           <Components.Div>
             <Components.Text>
-              <h1>Player 1</h1>
+              <h1 profile={profile?.username}>Player 1</h1>
             </Components.Text>
             <Components.TextScore>
               <h1>Score : {score}</h1>
