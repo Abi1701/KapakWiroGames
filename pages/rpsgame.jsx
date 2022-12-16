@@ -15,8 +15,9 @@ import {
 import Batu from "./../public/assets/Batu.svg";
 import Gunting from "./../public/assets/Gunting.svg";
 import Kertas from "./../public/assets/Kertas.svg";
+import withAuth from "../src/withAuth";
 
-export default function Game() {
+ function Game() {
   const profile = useSelector((state) => state.authReducer.profile)
   const [userChoice, setUserChoice] = useState("");
   const [img, setImg] = useState({
@@ -122,3 +123,4 @@ export default function Game() {
     </Container>
   );
 }
+export default withAuth(Game)
