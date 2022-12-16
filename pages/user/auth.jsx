@@ -121,7 +121,6 @@ const updateToggle =(data)=>{
         </Overlay>
       </OverlayContainer>
     </Container>
-
   );
 }
-export default withOutAuth(Auth)
+export default Auth

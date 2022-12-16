@@ -4,21 +4,21 @@ import React, { useState } from "react";
 import { ContainerPage, InputContainer, ProfileContent, ProfileContentInner, ProfileContentInput, UpdateImage, UpdateImageContainer } from "../src/component/profilePage";
 
 export default function profilePage() {
-  const [isUpload, setIsUpload] = useState(false);
-  const [isUploaded, setIsUploaded] = useState(false);
+  // const [isUpload, setIsUpload] = useState(false);
+  // const [isUploaded, setIsUploaded] = useState(false);
 
-  const handleClick = () => {
-    setIsUpload(true);
-    setTimeout(() => {
-      setIsUpload(false);
-      setIsUploaded(true);
-      setTimeout(() => setIsUploaded(false), 2500);
-    }, 2000);
-    console.log('clicked')
-  };
-  const updateImages =(data)=>{
-    dispatch(uploadImages(data))
-  }
+  // const handleClick = () => {
+  //   setIsUpload(true);
+  //   setTimeout(() => {
+  //     setIsUpload(false);
+  //     setIsUploaded(true);
+  //     setTimeout(() => setIsUploaded(false), 2500);
+  //   }, 2000);
+  //   console.log('clicked')
+  // };
+  // const updateImages =(data)=>{
+  //   dispatch(uploadImages(data))
+  // }
   return (
     <ContainerPage>
       <ProfileContent>
