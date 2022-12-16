@@ -2,6 +2,7 @@ import { VerifiedUser } from "@mui/icons-material";
 import { Divider, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
+import {BorderImg} from "../public/assets/border.svg"
 import {
   GameTittles,
   Paragraf,
@@ -24,13 +25,10 @@ import {
   GameListContent,
   GameListLanding,
   GameListMiddle,
-  GameListPicture,
   GameListRightContent,
   GameListTittle,
   GameColumnListTittle,
   HomeBar,
-  PictureBigCard,
-  PictureRightCard,
   PromoContent,
   PromoContents,
   PromoPage,
@@ -46,16 +44,15 @@ import {
   ColumnInnerCard,
   ColumnFrontCard,
   ColumnBackCard,
-  CarouselContent,
-  CarouselContainer,
-  CarouselContentImage,
   GameListBotomCard,
   BotomContent,
-  PictureBotomCard,
   PromoContentContainer,
   HomeContentTittle,
-  BigCardPict,
-  BigCardTittle,
+  BigFlipCard,
+  BigInnerCard,
+  BigFrontCard,
+  BigBackCard,
+  ParagrafBigCard,
 } from "../src/component/homeStyled";
 export default function Home() {
   const CssTextField = styled(TextField)({
@@ -87,14 +84,6 @@ export default function Home() {
     <>
       <Container>
         <BarContainer>
-          <SearchBar>
-            <CssTextField
-              id="filled-search"
-              label="Search field"
-              type="search"
-              variant="filled"
-            />
-          </SearchBar>
           <HomeBar>
             <HomeContentTittle>Kapak Wiro</HomeContentTittle>
           </HomeBar>
@@ -118,24 +107,31 @@ export default function Home() {
           </HomeBar>
         </BarContainer>
         <HomeContent>
-          <BigCard>
-            <Image width={600} height={300} src="/assets/SM.jpg" alt="pictBC" />
-            <p>Spider Man</p>
-          </BigCard>
-          <GameListRightContent>
-            <RightContent>
-              <Image width={300} height={150} src="/assets/LOS.jpg" alt="RPS" />
-              <p>Last Of Us</p>
-            </RightContent>
-            <RightContent href="https://nextjs.org/docs">
-              <Image width={300} height={150} src="/assets/DS.jpg" alt="RPS" />
-              <p>Dark Souls</p>
-            </RightContent>
-            <RightContent href="https://nextjs.org/docs">
-              <Image width={300} height={150} src="/assets/GOW.jpg" alt="RPS" />
-              <p>God of War</p>
-            </RightContent>
-          </GameListRightContent>
+          <BigFlipCard>
+            <BigInnerCard>
+              <BigFrontCard>
+                <Image
+                  width={600}
+                  height={300}
+                  src="/assets/SM.jpg"
+                  alt="dice"
+                />
+                <h3>Spider Man</h3>
+              </BigFrontCard>
+              <BigBackCard>
+                <ParagrafBigCard>
+                  In the latest adventure in the Marvel Spider-Man universe,
+                  teenager Miles Morales is adjusting to his new home while
+                  following in the footsteps of his mentor, Peter Parker, as a
+                  new Spider-Man. But when a fierce power struggle threatens to
+                  destroy his new home, the aspiring hero realizes that with
+                  great power, there must also come great responsibility. To
+                  save all of Marvel New York, Miles must take up the mantle of
+                  Spider-Man and own it.
+                </ParagrafBigCard>
+              </BigBackCard>
+            </BigInnerCard>
+          </BigFlipCard>
         </HomeContent>
         <GameListBotomCard>
           <BotomContent>
@@ -251,7 +247,7 @@ export default function Home() {
                 </ColumnBackCard>
               </ColumnInnerCard>
             </ColumnFlipCard>
-            <ColumnFlipCard href="/dicegame">
+            <ColumnFlipCard>
               <ColumnInnerCard>
                 <ColumnFrontCard>
                   <Image
@@ -277,7 +273,7 @@ export default function Home() {
           </GameListColumn>
           <GameListMiddle>
             <GameColumnListTittle>Developer Choices</GameColumnListTittle>
-            <ColumnFlipCard href="/dicegame">
+            <ColumnFlipCard>
               <ColumnInnerCard>
                 <ColumnFrontCard>
                   <Image
@@ -301,7 +297,7 @@ export default function Home() {
                 </ColumnBackCard>
               </ColumnInnerCard>
             </ColumnFlipCard>
-            <ColumnFlipCard href="/dicegame">
+            <ColumnFlipCard>
               <ColumnInnerCard>
                 <ColumnFrontCard>
                   <Image
@@ -326,7 +322,7 @@ export default function Home() {
                 </ColumnBackCard>
               </ColumnInnerCard>
             </ColumnFlipCard>
-            <ColumnFlipCard href="/dicegame">
+            <ColumnFlipCard>
               <ColumnInnerCard>
                 <ColumnFrontCard>
                   <Image
@@ -354,7 +350,7 @@ export default function Home() {
           </GameListMiddle>
           <GameListMiddle>
             <GameColumnListTittle>Actions</GameColumnListTittle>
-            <ColumnFlipCard href="/dicegame">
+            <ColumnFlipCard>
               <ColumnInnerCard>
                 <ColumnFrontCard>
                   <Image
@@ -377,7 +373,7 @@ export default function Home() {
                 </ColumnBackCard>
               </ColumnInnerCard>
             </ColumnFlipCard>
-            <ColumnFlipCard href="/dicegame">
+            <ColumnFlipCard>
               <ColumnInnerCard>
                 <ColumnFrontCard>
                   <Image
@@ -400,7 +396,7 @@ export default function Home() {
                 </ColumnBackCard>
               </ColumnInnerCard>
             </ColumnFlipCard>
-            <ColumnFlipCard href="/dicegame">
+            <ColumnFlipCard>
               <ColumnInnerCard>
                 <ColumnFrontCard>
                   <Image
@@ -447,19 +443,19 @@ export default function Home() {
             <FooterContent>System requirements</FooterContent>
             <FooterContent>quotes</FooterContent>
             <FooterContent>
-              <img src="/assets/facebook.svg" alt="facebook" />
+              <Image width={20} height={20} src="/assets/facebook.svg" alt="facebook" />
             </FooterContent>
             <FooterContent>
-              <img src="/assets/twitter.svg" alt="twitter" />
+              <Image width={20} height={20} src="/assets/twitter.svg" alt="twitter" />
             </FooterContent>
             <FooterContent>
-              <img src="/assets/youtube.svg" alt="youtube" />
+              <Image width={20} height={20} src="/assets/youtube.svg" alt="youtube" />
             </FooterContent>
             <FooterContent>
-              <img src="/assets/twitch.svg" alt="twitch" />
+              <Image width={20} height={20} src="/assets/twitch.svg" alt="twitch" />
             </FooterContent>
           </ContentFooter1>
-          <Border src="/assets/border.svg" alt="border" />
+          <Border><Image width={1200} height={10} src="/assets/border.svg" alt="border" /></Border>
           <FooterContent3>
             <FooterContents3>
               {" "}
