@@ -1,8 +1,12 @@
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import Image from "next/image";
+import ContentTable from '../src/component/table'
 import React, { useState } from "react";
-import { ContainerPage, InputContainer, ProfileContent, ProfileContentInner, ProfileContentInput, UpdateImage, UpdateImageContainer } from "../src/component/profilePage";
-
+import { ContainerPage, ContentContainer, InputContainer, ProfileContent, ProfileContentInner, ProfileContentInput, UpdateImage, UpdateImageContainer } from "../src/component/profilePage";
+import { Player } from "@lottiefiles/react-lottie-player";
+import Meditation from '../public/assets/meditation.json'
+import { width } from "@mui/system";
+import OutlinedCard from "../src/component/cardProfile";
 export default function profilePage() {
   // const [isUpload, setIsUpload] = useState(false);
   // const [isUploaded, setIsUploaded] = useState(false);
@@ -21,18 +25,14 @@ export default function profilePage() {
   // }
   return (
     <ContainerPage>
+      <ContentContainer>
       <ProfileContent>
-      <ProfileContentInner>
-      <Image width={100} height={100} src="/assets/drStrange.png" alt="Avatar" />
-          <InputContainer>
-          <ProfileContentInput placeholder="Username" />
-          <ProfileContentInput placeholder="Email" />
-          <UpdateImageContainer>
-          <FileUploadIcon type="file" Name="Avatar" />
-          </UpdateImageContainer>
-          </InputContainer>
-      </ProfileContentInner>
+      <OutlinedCard />
       </ProfileContent>
+      <ContentTable />
+      </ContentContainer>
+
+      <Player autoplay loop src={Meditation} style={{background:'black',position:'absolute',top:'80%', width:150}} />
       {/* <div className={style.root}>
         <div className={style.card}>
           <div className={style.cardProfile}>

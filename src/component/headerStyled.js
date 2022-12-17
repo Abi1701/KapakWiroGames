@@ -10,7 +10,6 @@ min-width:1440px
 export const NavLogo = styled.div`
 background:black;
 color:white;
-align-items:baseline;
 display: flex;
 justify-content: flex-start;
 min-width:1440px

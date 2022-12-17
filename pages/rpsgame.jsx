@@ -7,11 +7,12 @@ import {
   ComChoices,
   ComResult,
   Container,
+  GameContainer,
   H1,
   MiddleContent, PlayerChoice,
   PlayerChoices,
   PlayerResult,
-} from "../styles/styledRps";
+} from "../src/component/rpsStyled";
 import Batu from "./../public/assets/Batu.svg";
 import Gunting from "./../public/assets/Gunting.svg";
 import Kertas from "./../public/assets/Kertas.svg";
@@ -86,7 +87,8 @@ import withAuth from "../src/withAuth";
   }, [computerChoice, userChoice]);
   return (
     <Container>
-      <PlayerResult>
+      <GameContainer>
+<PlayerResult>
         <H1 profile={profile?.username}> Player: {userPoints} </H1>
       </PlayerResult>
       {choices.map((choice, index) => (
@@ -120,6 +122,8 @@ import withAuth from "../src/withAuth";
           <Refresh fontSize="large" />
         </Refresh>
       )}
+      </GameContainer>
+      
     </Container>
   );
 }

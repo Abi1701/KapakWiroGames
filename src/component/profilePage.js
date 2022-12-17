@@ -8,10 +8,18 @@ width:100%;
 background-size: cover;
 min-width: 1440px;
 @media (max-width: 768px) {
-  height: auto;
+  height: 100vh;
   width:100%;
   background-size: cover;
     }
+`
+export const ContentContainer = styled.div`
+gap:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:row;
+
 `
 export const ProfileContent = styled.div`
 width:700px;
