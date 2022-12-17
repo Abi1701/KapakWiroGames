@@ -40,14 +40,14 @@ export default function Header() {
             orientation="vertical"
             flexItem
           />
-      <NavContents>{token? (<NavTittle>Hello, {profile?.username}</NavTittle>):(<NavTittle>hello,Visitor</NavTittle>)}</NavContents>
+      <NavContents>{!profile? (<NavTittle>hello,Visitor</NavTittle>):(<NavTittle>Hello, {profile?.username}</NavTittle>)}</NavContents>
       <Divider
             sx={{ height: 50, mt: 2, ml: 2, mr: 2 }}
             color="white"
             orientation="vertical"
             flexItem
           />
-      <NavContents>{token? (<NavTittle onClick={logOut}>LogOut</NavTittle>):(<NavTittle><Link href='/user/auth'>Login or Register</Link></NavTittle>)}</NavContents>
+      <NavContents>{!profile? (<Link href='/user/auth'><NavTittle>Login or Register</NavTittle></Link>):(<NavTittle onClick={logOut}>LogOut</NavTittle>)}</NavContents>
       </NavContainerContent>
     </NavContainer>
   );

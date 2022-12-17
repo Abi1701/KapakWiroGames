@@ -1,5 +1,7 @@
 
+import { toast } from 'react-toastify'
 import axios from '../../utils/axios'
+import Router from 'next/router'
 import { GET_PROFILE, UPDATE_TOGGLE, UPDATE_TOKEN } from '../type/authType'
 import { UPLOAD_IMAGES_REQUEST,UPLOAD_IMAGES_SUCCESS,UPLOAD_IMAGES_FAILURE } from '../type/contentType'
 
@@ -17,9 +19,8 @@ export const getProfile = () => async (dispatch) => {
 export const doLogin = async(body) => {
   try {
     const { data } = await axios.post('/login', body)
-  
     localStorage.setItem('_q', data.data.accessToken)
-    window.location.reload()
+    Router.push("/")
   } catch (error) {}
 }
 export const doRegister = (body) => async (dispatch) => {
@@ -29,7 +30,9 @@ export const doRegister = (body) => async (dispatch) => {
       type: UPDATE_TOGGLE,
       data: true,
     })
+    toast.success("User Registered")
   } catch (error) {
+    toast.error(error.message)
   }
 }
 export const changeToggle = (body) => async (dispatch) =>{

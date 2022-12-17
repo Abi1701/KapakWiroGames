@@ -1,9 +1,8 @@
 import { VerifiedUser } from "@mui/icons-material";
 import { Divider, TextField } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import Image from "next/image";
 import Link from "next/link";
-import { BorderImg } from "../public/assets/border.svg";
+import { useState } from "react";
 import {
   GameTittles,
   Paragraf,
@@ -54,33 +53,18 @@ import {
   BigFrontCard,
   BigBackCard,
   ParagrafBigCard,
+  BigCardTittle,
+  BigCardTittleContent,
+  BigCardContent,
 } from "../src/component/homeStyled";
 export default function Home() {
-  const CssTextField = styled(TextField)({
-    "& label.Mui-focused": {
-      color: "black",
-      borderColor: "none",
-    },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "white",
-      color: "white",
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderColor: "black",
-        // color: "white",
-      },
-      "&:hover fieldset": {
-        border: "none",
-        color: "white",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "none",
-        color: "white",
-      },
-    },
-  });
-
+  const [value, setValue] = useState(false);
+  const handleMouse = (e) => {
+    setValue(true);
+  };
+  const handleMouseOut = (e) => {
+    setValue(false);
+  };
   return (
     <>
       <Container>
@@ -108,44 +92,62 @@ export default function Home() {
           </HomeBar>
         </BarContainer>
         <HomeContent>
-          <BigFlipCard>
-            <BigInnerCard>
-              <BigFrontCard>
-                <Image
-                  width={600}
-                  height={300}
-                  src="/assets/SM.jpg"
-                  alt="dice"
-                />
-                <h3>Spider Man</h3>
-              </BigFrontCard>
-              <BigBackCard>
+          <BigCard onMouseOver={handleMouse} onMouseOut={handleMouseOut}>
+            {!value ? (
+              <iframe
+                width="560"
+                height="315"
+                frameborder="0"
+                src="https://www.youtube.com/embed/cqGjhVJWtEg?version=3&amp;controls=0&amp;rel=0&amp;autoplay=1&amp;loop=1&amp;mute=1&amp;"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            ) : (
+              <BigCardTittle>
                 <ParagrafBigCard>
-                  In the latest adventure in the Marvel Spider-Man universe,
-                  teenager Miles Morales is adjusting to his new home while
-                  following in the footsteps of his mentor, Peter Parker, as a
-                  new Spider-Man. But when a fierce power struggle threatens to
-                  destroy his new home, the aspiring hero realizes that with
-                  great power, there must also come great responsibility. To
-                  save all of Marvel New York, Miles must take up the mantle of
-                  Spider-Man and own it.
+                  Miles Morales IS Spider-Man! What is the secret behind his
+                  powers, and how will he master them? What new and familiar
+                  enemies will rise to challenge this all-new Spider-Man? And
+                  will Miles live up to Peter Parker legacy?
                 </ParagrafBigCard>
-              </BigBackCard>
-            </BigInnerCard>
-          </BigFlipCard>
+              </BigCardTittle>
+            )}
+          </BigCard>
         </HomeContent>
         <GameListBotomCard>
           <BotomContent>
-            <Image width={200} height={100} src="/assets/AC.png" alt="RPS" />
-            <p>Assasins Creed Brother Hood</p>
+            <iframe
+              width="280"
+              height="157"
+              src="https://www.youtube.com/embed/NTunTURbyUU?controls=0&amp;rel=0&amp;autoplay=1&amp;loop=10&amp;mute=1&amp;"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </BotomContent>
           <BotomContent>
-            <Image width={200} height={100} src="/assets/BF.jpg" alt="RPS" />
-            <p>BattleField : 2042</p>
+            <iframe
+              width="280"
+              height="157"
+              src="https://www.youtube.com/embed/qIQ3xNqkVC4?controls=0&amp;rel=0&amp;autoplay=1&amp;loop=10&amp;mute=1&amp;"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </BotomContent>
           <BotomContent>
-            <Image width={200} height={100} src="/assets/SW.png" alt="RPS" />
-            <p>Star Wars : Jedi Fallen Order</p>
+            <iframe
+              width="280"
+              height="157"
+              src="https://www.youtube.com/embed/T03PxxuCfDA?controls=0&amp;rel=0&amp;autoplay=1&amp;loop=10&amp;mute=1&amp;"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </BotomContent>
         </GameListBotomCard>
       </Container>
