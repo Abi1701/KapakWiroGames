@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const NavContainer = styled.div`
 background:black;
 color:white;
-align-items:baseline;
 display: flex;
 min-width:1440px
 `
@@ -12,20 +11,20 @@ background:black;
 color:white;
 display: flex;
 justify-content: flex-start;
-min-width:1440px
+max-width:800px
 margin-top:1rem;
 margin-left:2rem;
+width:20%;
 `
 export const NavContainerContent = styled.div`
 display:flex;
-margin-left:45rem;
+margin-left:55rem;
 `
 export const NavContent = styled.div`
-
+padding-top:0.5rem;
 `
 export const NavContents = styled.div`
-
-}
+padding-top:0.5rem;
 `
 
 export const NavAuth = styled.h1`

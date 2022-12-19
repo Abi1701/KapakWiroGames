@@ -7,5 +7,5 @@ export const LOGOUT = "LOGOUT";
 export const SET_MESSAGE = "SET_MESSAGE";
 export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
 
-export const UPLOAD_SUCCESS = "UPLOD_SUCCES"
-export const UPLOAD_FAIL = "UPLOD_FAIL"
+export const UPLOAD_SUCCESS = "UPLOAD_SUCCES"
+export const UPLOAD_FAIL = "UPLOAD_FAIL"

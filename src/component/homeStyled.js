@@ -79,9 +79,10 @@ export const GameListBotomCard = styled.div`
   border-radius: 15px;
   display:flex;
   flex-direction:row;
-  align-items:baseline;
+  align-items:center;
+  justify-content:center;
   gap:100px;
-  margin-left:17%;
+  margin-left:0;
 `
 export const BotomContent = styled.div`
   text-align: center;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContainerPage = styled.div`
+export const ContainerPage = styled.section`
 display:flex;
 background-color: black;
 height: 100vh;
@@ -18,8 +18,6 @@ gap:50px;
 display:flex;
 align-items:center;
 justify-content:center;
-flex-direction:row;
-
 `
 export const ProfileContent = styled.div`
 width:700px;
@@ -32,30 +30,6 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 background-attachment: fixed;
 background-size: cover;
 display:flex;
-flex-direction:row;
-gap:50px;
-`
-export const ProfileContentInner = styled.div`
-margin-left:10%;
-margin-top:5%;
-display:flex;
-flex-direction:row;
-`
-export const InputContainer = styled.div`
-display:flex;
 flex-direction:column;
-gap:20px;
-`
-export const ProfileContentInput = styled.input`
-background-color:black;
-color:white;
-width:200px;
-height:50px;
-border-radius:15px;
-`
-export const UpdateImageContainer = styled.div`
-
-`
-export const UpdateImage = styled.input`
-border-radius:30px;
+gap:50px;
 `

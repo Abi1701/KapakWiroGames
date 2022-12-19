@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { Container, Grid, Paper, styled, TextField } from "@mui/material";
 import { CameraAlt } from "@mui/icons-material";
+import { useSelector } from "react-redux";
 
 const BoxProfile = styled("label")({
   position: "relative",
@@ -32,8 +33,8 @@ const Image = styled("img")({
     filter: "brightness(60%)",
   },
 });
-export default function OutlinedCard({profile}) {
- 
+export default function OutlinedCard() {
+  const profile = useSelector((state) => state.authReducer.profile);
   return (
     <Container>
       <Paper
@@ -76,7 +77,6 @@ export default function OutlinedCard({profile}) {
               variant="body1"
               fontWeight="bold"
               color="white"
-              
             >
               username
             </Typography>
