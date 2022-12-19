@@ -127,7 +127,7 @@ export default function ColumnGroupingTable() {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
-      <Pdf downloadFileName="CustomPdf" rootElementId="testId" />
+      <Pdf downloadFileName="Score.Pdf" rootElementId="testId" />
     </>
   );
 }
