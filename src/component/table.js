@@ -1,4 +1,3 @@
-import * as React from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -7,7 +6,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
+import Link from "next/link";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Pdf from "../component/DownloadPdf/dowloadPdf";
+import { getProfile, getScore } from "../store/actions/authActions";
 
 const columns = [
   { id: "id", label: "No", minWidth: 170 },
@@ -52,6 +55,30 @@ const rows = [
 ];
 
 export default function ColumnGroupingTable() {
+  const dispatch = useDispatch();
+  const profile = useSelector((state) => state.authReducer.profile);
+  let ignore = true;
+  useEffect(() => {
+    if (ignore) fetchProfile();
+    return () => {
+      ignore = false;
+    };
+  }, []);
+  const fetchProfile = async () => {
+    await dispatch(getProfile());
+  };
+  const score = useSelector((state) => state.authReducer.score);
+  const fetchScore = async () => {
+    let ignore = true;
+    useEffect(() => {
+      if (ignore) fetchScore();
+      return () => {
+        ignore = false;
+      };
+    }, []);
+    await dispatch(getScore());
+  };
+
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -66,16 +93,25 @@ export default function ColumnGroupingTable() {
 
   return (
     <>
-      <Paper sx={{ width: "60%", height: 500, borderRadius: 5, border: 0, marginTop: 10 }} id="testId">
+      <Paper
+        sx={{
+          width: "60%",
+          height: 500,
+          borderRadius: 5,
+          border: 0,
+          marginTop: 10,
+        }}
+        id="testId"
+      >
         <TableContainer sx={{ maxHeight: 440, borderRadius: 5 }}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
                 <TableCell align="center" colSpan={2}>
-                  Username
+                  Username {profile}
                 </TableCell>
                 <TableCell align="center" colSpan={3}>
-                  Games Result
+                  Games Result {score}
                 </TableCell>
               </TableRow>
               <TableRow>
@@ -128,6 +164,8 @@ export default function ColumnGroupingTable() {
         />
       </Paper>
       <Pdf downloadFileName="Score.Pdf" rootElementId="testId" />
+      {/* <Link href="javascript:window.print()">Download Pdf</Link> */}
+      {/* <PdfViewer /> */}
     </>
   );
 }

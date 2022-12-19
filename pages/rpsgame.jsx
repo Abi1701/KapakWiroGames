@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { Refresh } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
+import { getProfile } from "../src/store/actions/authActions";
 import {
   ComChoice,
   ComChoices,
@@ -9,7 +10,8 @@ import {
   Container,
   GameContainer,
   H1,
-  MiddleContent, PlayerChoice,
+  MiddleContent,
+  PlayerChoice,
   PlayerChoices,
   PlayerResult,
 } from "../src/component/rpsStyled";
@@ -18,8 +20,20 @@ import Gunting from "./../public/assets/Gunting.svg";
 import Kertas from "./../public/assets/Kertas.svg";
 import withAuth from "../src/withAuth";
 
- function Game() {
-  const profile = useSelector((state) => state.authReducer.profile)
+function Game() {
+  const dispatch = useDispatch();
+  const profile = useSelector((state) => state.authReducer.profile);
+  let ignore = true;
+  useEffect(() => {
+    if (ignore) fetchData();
+    return () => {
+      ignore = false;
+    };
+  }, []);
+  const fetchData = async () => {
+    await dispatch(getProfile());
+  };
+
   const [userChoice, setUserChoice] = useState("");
   const [img, setImg] = useState({
     random: require("../public/assets/Batu.svg"),
@@ -88,43 +102,49 @@ import withAuth from "../src/withAuth";
   return (
     <Container>
       <GameContainer>
-<PlayerResult>
-        <H1 profile={profile?.username}> Player: {userPoints} </H1>
-      </PlayerResult>
-      {choices.map((choice, index) => (
-        <PlayerChoice
-          key={index}
-          onClick={() => handleClick(choice)}
-          disabled={gameOver}
-        >
-          <PlayerChoices>
-            <Image src={Gunting} width={100} alt="Gunting" name="Gunting" />
-          </PlayerChoices>
-          <PlayerChoices>
-            <Image src={Batu} width={100} alt="Batu" name="Batu" />
-          </PlayerChoices>
-          <PlayerChoices>
-            <Image src={Kertas} width={100} alt="Kertas" name="Kertas" />
-          </PlayerChoices>
-        </PlayerChoice>
-      ))}
-      <MiddleContent>{turnResult}</MiddleContent>
-      {/* <MiddleContent2>{result}</MiddleContent2> */}
-      <ComResult>
-        <H1> Computer: {computerPoints} </H1>
-      </ComResult>
-      <ComChoice>
-        <Image src={img.random} alt="Batu" name="Batu" />
-        <ComChoices> {computerChoice} </ComChoices>
-      </ComChoice>
-      {gameOver && (
-        <Refresh onClick={() => reset()}>
-          <Refresh fontSize="large" />
-        </Refresh>
-      )}
+        <PlayerResult>
+          {!profile ? (
+            <H1> Player: {userPoints} </H1>
+          ) : (
+            <H1>
+              {" "}
+              {profile}: {userPoints}{" "}
+            </H1>
+          )}
+        </PlayerResult>
+        {choices.map((choice, index) => (
+          <PlayerChoice
+            key={index}
+            onClick={() => handleClick(choice)}
+            disabled={gameOver}
+          >
+            <PlayerChoices>
+              <Image src={Gunting} width={100} alt="Gunting" name="Gunting" />
+            </PlayerChoices>
+            <PlayerChoices>
+              <Image src={Batu} width={100} alt="Batu" name="Batu" />
+            </PlayerChoices>
+            <PlayerChoices>
+              <Image src={Kertas} width={100} alt="Kertas" name="Kertas" />
+            </PlayerChoices>
+          </PlayerChoice>
+        ))}
+        <MiddleContent>{turnResult}</MiddleContent>
+        {/* <MiddleContent2>{result}</MiddleContent2> */}
+        <ComResult>
+          <H1> Computer: {computerPoints} </H1>
+        </ComResult>
+        <ComChoice>
+          <Image src={img.random} alt="Batu" name="Batu" />
+          <ComChoices> {computerChoice} </ComChoices>
+        </ComChoice>
+        {gameOver && (
+          <Refresh onClick={() => reset()}>
+            <Refresh fontSize="large" />
+          </Refresh>
+        )}
       </GameContainer>
-      
     </Container>
   );
 }
-export default withAuth(Game)
+export default withAuth(Game);

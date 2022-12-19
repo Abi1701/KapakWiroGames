@@ -141,7 +141,7 @@ export default function Home() {
 								</InnerCard>
 							</FlipCard>
 						</Link>
-						<Link href="/rpsGame">
+						<Link href="/rpsgame">
 							<FlipCard>
 								<InnerCard>
 									<FrontCard>

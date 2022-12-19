@@ -16,7 +16,7 @@ const GenericPdfDownloader = ({rootElementId , downloadFileName}) => {
             })
     }
 
-    return <Button onClick={()=>downloadPdfDocument()}>Download Score Pdf</Button>
+    return <Button onClick={()=>downloadPdfDocument()}>Download Pdf</Button>
 
 }
 

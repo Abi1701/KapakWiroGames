@@ -1,6 +1,7 @@
 import {
 	GET_EMAIL,
 	GET_PROFILE,
+	GET_SCORE,
 	UPDATE_TOGGLE,
 	UPDATE_TOKEN,
 } from "../type/authType";
@@ -8,6 +9,7 @@ import {
 const initialState = {
 	email: null,
 	profile: null,
+	score: null,
 	toggle: true,
 	token: false,
 	avatar: null,
@@ -24,6 +26,11 @@ const authReducer = (state = initialState, action) => {
 			return {
 				...state,
 				profile: action.profile,
+			};
+		case GET_SCORE:
+			return {
+				...state,
+				score: action.score,
 			};
 		case UPDATE_TOGGLE:
 			return {

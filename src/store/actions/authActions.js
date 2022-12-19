@@ -4,6 +4,7 @@ import Router from "next/router";
 import {
 	GET_EMAIL,
 	GET_PROFILE,
+	GET_SCORE,
 	UPDATE_TOGGLE,
 	UPDATE_TOKEN,
 } from "../type/authType";
@@ -27,6 +28,18 @@ export const getEmail = () => async (dispatch) => {
 		dispatch({
 			type: GET_EMAIL,
 			email: data.user.email,
+		});
+	} catch (error) {
+		console.log(error);
+	}
+};
+export const getScore = () => async (dispatch) => {
+	try {
+		const { data } = await axios.get("/user/gamescore");
+		console.log(data);
+		dispatch({
+			type: GET_SCORE,
+			score: data.game.play_count,
 		});
 	} catch (error) {
 		console.log(error);
