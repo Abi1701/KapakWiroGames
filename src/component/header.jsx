@@ -72,7 +72,9 @@ export default function Header() {
 					{!profile ? (
 						<NavTittle>hello,Visitor</NavTittle>
 					) : (
-						<NavTittle>Hello, {profile && profile}</NavTittle>
+						<Link href="/profilepage">
+							<NavTittle>Hello, {profile && profile} </NavTittle>{" "}
+						</Link>
 					)}
 				</NavContents>
 				<Divider

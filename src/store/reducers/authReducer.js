@@ -1,6 +1,12 @@
-import { GET_PROFILE, UPDATE_TOGGLE, UPDATE_TOKEN } from "../type/authType";
+import {
+	GET_EMAIL,
+	GET_PROFILE,
+	UPDATE_TOGGLE,
+	UPDATE_TOKEN,
+} from "../type/authType";
 
 const initialState = {
+	email: null,
 	profile: null,
 	toggle: true,
 	token: false,
@@ -9,6 +15,11 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
 	switch (action.type) {
+		case GET_EMAIL:
+			return {
+				...state,
+				email: action.email,
+			};
 		case GET_PROFILE:
 			return {
 				...state,

@@ -1,7 +1,12 @@
 import { toast } from "react-toastify";
 import axios from "../../utils/axios";
 import Router from "next/router";
-import { GET_PROFILE, UPDATE_TOGGLE, UPDATE_TOKEN } from "../type/authType";
+import {
+	GET_EMAIL,
+	GET_PROFILE,
+	UPDATE_TOGGLE,
+	UPDATE_TOKEN,
+} from "../type/authType";
 
 export const getProfile = () => async (dispatch) => {
 	try {
@@ -10,6 +15,18 @@ export const getProfile = () => async (dispatch) => {
 		dispatch({
 			type: GET_PROFILE,
 			profile: data.user.username,
+		});
+	} catch (error) {
+		console.log(error);
+	}
+};
+export const getEmail = () => async (dispatch) => {
+	try {
+		const { data } = await axios.get("/me");
+		console.log(data);
+		dispatch({
+			type: GET_EMAIL,
+			email: data.user.email,
 		});
 	} catch (error) {
 		console.log(error);
