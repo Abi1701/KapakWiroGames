@@ -90,7 +90,6 @@ export const Input = styled.input`
   padding: 12px 15px;
   margin: 8px 0;
   width: 50%;
-  color: black;
   border-radius: 15px;
   transition:box-shadow 0.5s ease-in-out;
   &:active {

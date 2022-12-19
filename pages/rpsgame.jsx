@@ -7,17 +7,19 @@ import {
   ComChoices,
   ComResult,
   Container,
+  GameContainer,
   H1,
   MiddleContent, PlayerChoice,
   PlayerChoices,
   PlayerResult,
-} from "../src/component/styledRps";
+} from "../src/component/rpsStyled";
 import Batu from "./../public/assets/Batu.svg";
 import Gunting from "./../public/assets/Gunting.svg";
 import Kertas from "./../public/assets/Kertas.svg";
+import withAuth from "../src/withAuth";
 
-export default function Game() {
-  const userProfile = useSelector((state) => state.authReducer.profile)
+ function Game() {
+  const profile = useSelector((state) => state.authReducer.profile)
   const [userChoice, setUserChoice] = useState("");
   const [img, setImg] = useState({
     random: require("../public/assets/Batu.svg"),
@@ -85,8 +87,9 @@ export default function Game() {
   }, [computerChoice, userChoice]);
   return (
     <Container>
-      <PlayerResult>
-        <H1 profile={userProfile?.username}> Player: {userPoints} </H1>
+      <GameContainer>
+<PlayerResult>
+        <H1 profile={profile?.username}> Player: {userPoints} </H1>
       </PlayerResult>
       {choices.map((choice, index) => (
         <PlayerChoice
@@ -119,6 +122,9 @@ export default function Game() {
           <Refresh fontSize="large" />
         </Refresh>
       )}
+      </GameContainer>
+      
     </Container>
   );
 }
+export default withAuth(Game)
