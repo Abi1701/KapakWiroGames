@@ -124,6 +124,11 @@ background-color: #1c1b1b;
   height: 90vh;
   background-size: cover;
   min-width: 1440px;
+  @media (max-width: 1440px) {
+    height: auto;
+    width:100%;
+    background-size: cover;
+  }
 `
 export const FlipCard = styled.div`
 background-color: transparent;
