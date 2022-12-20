@@ -1,54 +1,98 @@
-import * as React from "react";
-import { NavContainer,NavLogo,NavContent,NavContents, NavTittle, NavContainerContent } from "./headerStyled";
+import React, { useEffect, useState } from "react";
+import {
+	NavContainer,
+	NavLogo,
+	NavContent,
+	NavContents,
+	NavTittle,
+	NavContainerContent,
+} from "./headerStyled";
 import { useDispatch, useSelector } from "react-redux";
-import { doLogout, updateToken,getProfile } from "../store/actions/authActions";
+import {
+	doLogout,
+	updateToken,
+	getProfile,
+} from "../store/actions/authActions";
 import { Divider } from "@mui/material";
 import Link from "next/link";
-import Image from "next/image";
-import Logo from "../../public/assets/drStrange.png" 
+import { Player } from "@lottiefiles/react-lottie-player";
+import Meditation from "../../public/assets/meditation.json";
 
 export default function Header() {
-  const dispatch = useDispatch();
-  const token = useSelector((state) => state.authReducer.token);
-  const profile = useSelector((state) => state.authReducer.profile);
+	const dispatch = useDispatch();
+	const profile = useSelector((state) => state.authReducer.profile);
+	let ignore = true;
+	useEffect(() => {
+		if (ignore) fetchData();
+		return () => {
+			ignore = false;
+		};
+	}, []);
+	const fetchData = async () => {
+		await dispatch(getProfile());
+	};
 
-  const fetchData = async () => {
-    await dispatch(updateToken());
-  };
-  const [state, setState] = React.useState({
-    top: false,
-  });
+	const logOut = () => {
+		doLogout();
+	};
 
-  const logOut = async () => {
-    await doLogout();
-  };
-
-  return (
-    <NavContainer>
-      <NavLogo><Image width={100} height={100} src={Logo} alt="Logo"/></NavLogo>
-      <NavContainerContent>
-      <Divider
-            sx={{ height: 50, mt: 2, ml: 2, mr: 2 }}
-            color="white"
-            orientation="vertical"
-            flexItem
-          />
-      <NavContent><NavTittle><Link href="/">Home</Link></NavTittle></NavContent>
-      <Divider
-            sx={{ height: 50, mt: 2, ml: 2, mr: 2 }}
-            color="white"
-            orientation="vertical"
-            flexItem
-          />
-      <NavContents>{token? (<NavTittle>Hello, {profile?.username}</NavTittle>):(<NavTittle>hello,Visitor</NavTittle>)}</NavContents>
-      <Divider
-            sx={{ height: 50, mt: 2, ml: 2, mr: 2 }}
-            color="white"
-            orientation="vertical"
-            flexItem
-          />
-      <NavContents>{token? (<NavTittle onClick={logOut}>LogOut</NavTittle>):(<NavTittle><Link href='/user/auth'>Login or Register</Link></NavTittle>)}</NavContents>
-      </NavContainerContent>
-    </NavContainer>
-  );
+	return (
+		<NavContainer>
+			<Player
+				autoplay
+				loop
+				src={Meditation}
+				style={{
+					background: "transparent",
+					position: "absolute",
+					top: "0",
+					left: "3%",
+					width: 70,
+				}}
+			/>
+			<NavContainerContent>
+				<Divider
+					sx={{ height: 50, mt: 2, ml: 2, mr: 2 }}
+					color="white"
+					orientation="vertical"
+					flexItem
+				/>
+				<NavContent>
+					<NavTittle>
+						<Link href="/">Home</Link>
+					</NavTittle>
+				</NavContent>
+				<Divider
+					sx={{ height: 50, mt: 2, ml: 2, mr: 2 }}
+					color="white"
+					orientation="vertical"
+					flexItem
+				/>
+				<NavContents>
+					{!profile ? (
+						<NavTittle>hello,Visitor</NavTittle>
+					) : (
+						<Link href="/profilepage">
+							<NavTittle>Hello, {profile && profile}</NavTittle>{" "}
+						</Link>
+					)}
+				</NavContents>
+				<Divider
+					sx={{ height: 50, mt: 2, ml: 2, mr: 2 }}
+					color="white"
+					orientation="vertical"
+					flexItem
+				/>
+				<NavContents>
+					{!profile ? (
+						<Link href="/user/auth">
+							<NavTittle>Login or Register</NavTittle>
+						</Link>
+					) : (
+						<NavTittle onClick={logOut}>LogOut</NavTittle>
+					)}
+				</NavContents>
+			</NavContainerContent>
+		</NavContainer>
+	);
 }
