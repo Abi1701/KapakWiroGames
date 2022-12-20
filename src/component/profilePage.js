@@ -42,6 +42,8 @@ export const ContentInput = styled.input`
 	text-align: center;
 	border-radius: 15px;
 	font-family: "Chivo Mono", monospace;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+	variant: disable;
 `;
 export const ButtonDownload = styled.button`
 	font-weight: 700;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 //page1
 export const Container = styled.section`
 	background-color: black;
-	height: auto;
+	height: 100vh;
 	width: 100%;
 	background-size: cover;
 	min-width: 1440px;
@@ -28,7 +28,10 @@ export const HomeContent = styled.div`
 	transition: color 1s ease, border-color 0.7s ease,
 		background-color 0.5s ease-in-out;
 `;
-export const HomeContentTittle = styled.h1``;
+export const HomeContentTittle = styled.h1`
+position: absolute,
+color:white;
+`;
 export const HomeBar = styled.div`
 	color: white;
 	opacity: 50%;
@@ -52,12 +55,13 @@ export const BigCard = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding-top: 5rem;
 `;
 export const BigCardContent = styled.iframe`
 position: absolute,
-frameBorder: 0;
-width="560"
-height="315"
+frame-border: 0;
+width:100%;
+height:100%;
 `;
 export const BigCardTittle = styled.h1`
 position: absolute,
@@ -118,6 +122,7 @@ export const PictureBotomCard = styled.img`
 	width: 100%;
 	border-radius: 15px;
 `;
+
 //page2 = userChoice
 export const GameList = styled.section`
 	background-image: linear-gradient(

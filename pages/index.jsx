@@ -48,13 +48,9 @@ import {
 	BotomContent,
 	PromoContentContainer,
 	HomeContentTittle,
-	BigFlipCard,
-	BigInnerCard,
-	BigFrontCard,
-	BigBackCard,
 	ParagrafBigCard,
 	BigCardTittle,
-	BigCardTittleContent,
+	BigCardTittles,
 	BigCardContent,
 } from "../src/component/homeStyled";
 export default function Home() {
@@ -94,14 +90,12 @@ export default function Home() {
 				<HomeContent>
 					<BigCard onMouseOver={handleMouse} onMouseOut={handleMouseOut}>
 						{!value ? (
-							<iframe
-								width="560"
-								height="315"
+							<BigCardContent
 								frameBorder="0"
 								src="https://www.youtube.com/embed/cqGjhVJWtEg?version=3&amp;controls=0&amp;rel=0&amp;autoplay=1&amp;loop=1&amp;mute=1&amp;"
 								title="YouTube video player"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-								allowFullScreen></iframe>
+								allowFullScreen></BigCardContent>
 						) : (
 							<BigCardTittle>
 								<ParagrafBigCard>
