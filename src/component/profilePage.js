@@ -7,6 +7,7 @@ export const ContainerPage = styled.section`
 	width: 100%;
 	background-size: cover;
 	min-width: 1440px;
+
 	@media (max-width: 768px) {
 		height: 100vh;
 		width: 100%;
@@ -14,9 +15,9 @@ export const ContainerPage = styled.section`
 	}
 `;
 export const ContentContainer = styled.div`
-	gap: 2px;
+	gap: 100px;
 	display: flex;
-	align-items: center;
+	align-items: baseline;
 	justify-content: center;
 `;
 export const ProfileContent = styled.div`
@@ -40,4 +41,27 @@ export const ContentInput = styled.input`
 	height: 50px;
 	text-align: center;
 	border-radius: 15px;
+	font-family: "Chivo Mono", monospace;
+`;
+export const ButtonDownload = styled.button`
+	font-weight: 700;
+	margin-top: 45.5em;
+	margin-left: 22em;
+	height: 50px;
+	width: 150px;
+	border-radius: 15px;
+	border: none;
+	position: absolute;
+	transition: box-shadow 0.7s ease;
+	font-family: "Chivo Mono", monospace;
+	&:hover {
+		cursor: pointer;
+		color: white;
+		box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+			rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+			rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+			rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+			rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+			rgba(0, 0, 0, 0.09) 0px 32px 16px;
+	}
 `;

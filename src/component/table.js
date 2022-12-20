@@ -8,7 +8,7 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import React, { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
-import { Button } from "./buttonDownload/buttonStyled";
+import { ButtonDownload } from "./profilePage";
 
 const columns = [
 	{ id: "id", label: "No", minWidth: 170 },
@@ -137,7 +137,7 @@ export default function ColumnGroupingTable() {
 					onRowsPerPageChange={handleChangeRowsPerPage}
 				/>
 			</Paper>
-			<Button onClick={handlePrint}> Print </Button>
+			<ButtonDownload onClick={handlePrint}> Print </ButtonDownload>
 		</>
 	);
 }
