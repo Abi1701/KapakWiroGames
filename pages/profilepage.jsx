@@ -3,12 +3,8 @@ import React, { useState } from "react";
 import {
 	ContainerPage,
 	ContentContainer,
-	InputContainer,
+	ContentContainerPage,
 	ProfileContent,
-	ProfileContentInner,
-	ProfileContentInput,
-	UpdateImage,
-	UpdateImageContainer,
 } from "../src/component/profilePage";
 import OutlinedCard from "../src/component/cardProfile";
 export default function profilePage() {
@@ -29,12 +25,10 @@ export default function profilePage() {
 	// }
 	return (
 		<ContainerPage>
-			<ContentContainer>
-				<ProfileContent>
-					<OutlinedCard />
-				</ProfileContent>
+			<ContentContainerPage>
+				<OutlinedCard />
 				<ContentTable />
-			</ContentContainer>
+			</ContentContainerPage>
 		</ContainerPage>
 	);
 }

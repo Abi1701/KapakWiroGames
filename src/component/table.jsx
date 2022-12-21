@@ -84,27 +84,29 @@ export default function ColumnGroupingTable() {
 		<>
 			<Paper
 				sx={{
-					width: "60%",
+					width: "100%",
 					height: 500,
 					borderRadius: 5,
 					border: 0,
-					marginTop: 20,
+					marginTop: 5,
+					marginLeft: 16,
 				}}
 				id="testId">
 				<TableContainer sx={{ maxHeight: 440, borderRadius: 5 }}>
 					<Table ref={componentRef} stickyHeader aria-label="sticky table">
 						<TableHead>
 							<TableRow>
-								<TableCell align="center" colSpan={2}>
+								<TableCell sx={{ fontSize: 32 }} align="center" colSpan={2}>
 									Username
 								</TableCell>
-								<TableCell align="center" colSpan={3}>
+								<TableCell sx={{ fontSize: 32 }} align="center" colSpan={3}>
 									Games Result
 								</TableCell>
 							</TableRow>
 							<TableRow>
 								{columns.map((column) => (
 									<TableCell
+										sx={{ fontSize: 32 }}
 										key={column.id}
 										align={column.align}
 										style={{ top: 57, minWidth: column.minWidth }}>
@@ -149,7 +151,10 @@ export default function ColumnGroupingTable() {
 					onRowsPerPageChange={handleChangeRowsPerPage}
 				/>
 			</Paper>
-			<ButtonDownload onClick={handlePrint}> Print </ButtonDownload>
+			<ButtonDownload onClick={handlePrint}>
+				{" "}
+				Print Table Result{" "}
+			</ButtonDownload>
 		</>
 	);
 }

@@ -51,23 +51,11 @@ export default function Header() {
 				}}
 			/>
 			<NavContainerContent>
-				<Divider
-					sx={{ height: 50, mt: 2, ml: 2, mr: 2 }}
-					color="white"
-					orientation="vertical"
-					flexItem
-				/>
 				<NavContent>
 					<NavTittle>
 						<Link href="/">Home</Link>
 					</NavTittle>
 				</NavContent>
-				<Divider
-					sx={{ height: 50, mt: 2, ml: 2, mr: 2 }}
-					color="white"
-					orientation="vertical"
-					flexItem
-				/>
 				<NavContents>
 					{!profile ? (
 						<NavTittle>hello,Visitor</NavTittle>
@@ -77,12 +65,6 @@ export default function Header() {
 						</Link>
 					)}
 				</NavContents>
-				<Divider
-					sx={{ height: 50, mt: 2, ml: 2, mr: 2 }}
-					color="white"
-					orientation="vertical"
-					flexItem
-				/>
 				<NavContents>
 					{!profile ? (
 						<Link href="/user/auth">

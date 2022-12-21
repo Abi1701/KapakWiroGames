@@ -135,7 +135,7 @@ export default function Home() {
 								</InnerCard>
 							</FlipCard>
 						</Link>
-						<Link href="/rpsGame">
+						<Link href="/rpsgame">
 							<FlipCard>
 								<InnerCard>
 									<FrontCard>
@@ -403,9 +403,9 @@ export default function Home() {
 				<ContentFooter>
 					<ContentFooter1>
 						<FooterContent>MAIN</FooterContent>
-						<FooterContent>about</FooterContent>
-						<FooterContent>game features</FooterContent>
-						<FooterContent>System requirements</FooterContent>
+						<FooterContent>About</FooterContent>
+						<FooterContent>Game</FooterContent>
+						<FooterContent>System</FooterContent>
 						<FooterContent>quotes</FooterContent>
 						<FooterContent>
 							<Image

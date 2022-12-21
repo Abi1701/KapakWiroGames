@@ -5,7 +5,7 @@ export const Container = styled.section`
 	height: 100vh;
 	width: 100%;
 	background-size: cover;
-	min-width: 1440px;
+	min-width: 1280px;
 	@media (max-width: 768px) {
 		height: auto;
 		width: 100%;
@@ -18,6 +18,10 @@ export const BarContainer = styled.div`
 	margin-left: 21%;
 	padding-top: 3rem;
 	@media (max-width: 768px) {
+		padding-top: 0;
+		margin-left: 75%;
+		font-size: 2em;
+		display: none;
 	}
 `;
 export const HomeContent = styled.div`
@@ -62,6 +66,11 @@ position: absolute,
 frame-border: 0;
 width:100%;
 height:100%;
+@media (max-width: 768px) {
+	padding-top: 0;
+	width:1280px;
+	height:1350px;
+}
 `;
 export const BigCardTittle = styled.h1`
 position: absolute,
@@ -177,9 +186,9 @@ export const GameList = styled.section`
 	background-position: 0 0, 0 0, 32px 56px, 32px 56px, 0 0, 32px 56px;
 	background-color: #1c1b1b;
 	background-attachment: fixed;
-	height: 90vh;
+	height: auto;
 	background-size: cover;
-	min-width: 1440px;
+	min-width: 1280px;
 `;
 export const FlipCard = styled.div`
 	background-color: transparent;
@@ -188,6 +197,11 @@ export const FlipCard = styled.div`
 	perspective: 500px;
 	justify-content: space-around;
 	margin-right: 2rem;
+	@media (max-width: 768px) {
+		padding-top: 0;
+		width: 400px;
+		height: 400px;
+	}
 `;
 export const InnerCard = styled(FlipCard)`
 	&:hover {
@@ -300,7 +314,7 @@ export const GameListLanding = styled.section`
 	background-color: black;
 	height: auto;
 	background-size: cover;
-	min-width: 1440px;
+	min-width: 1280px;
 `;
 export const GameListColumnGame = styled.div`
 	display: flex;
@@ -419,6 +433,9 @@ export const GameListColumn = styled.div`
 	transition: color 1s ease, border-color 0.7s ease,
 		background-color 0.5s ease-in;
 	border-radius: 15px;
+	@media (max-width: 768px) {
+		display: none;
+	}
 `;
 export const GameListMiddle = styled.div`
 	width: 300px;
@@ -432,6 +449,9 @@ export const GameListMiddle = styled.div`
 		background-color 0.5s ease-in;
 	border-radius: 15px;
 	padding-top: 2rem;
+	@media (max-width: 768px) {
+		width: 500px;
+	}
 `;
 export const GameListColumnContent = styled.div`
 	text-decoration: none;
@@ -531,10 +551,14 @@ export const PromoPage = styled.section`
 	background-color: black;
 	background-size: cover;
 	display: flex;
-	min-width: 1440px;
+	min-width: 1280px;
 `;
 export const PromoContentContainer = styled.h1`
 	margin-left: 25%;
+	@media (max-width: 728px) {
+		font-size: 4em;
+		margin-left: 2%;
+	}
 `;
 export const PromoContent = styled.p`
 	color: white;
@@ -556,19 +580,18 @@ export const PromoContents = styled.span`
 `;
 //footerLandin
 export const Footer = styled.section`
-	height: 35vh;
+	height: 45vh;
 	width: 100%;
 	background-color: black;
 	background-size: cover;
 	display: flex;
-	min-width: 1440px;
+	min-width: 1280px;
 `;
 export const ContentFooter = styled.div`
 	color: white;
 	position: absolute;
+	margin-top: 1rem;
 	@media (max-width: 768px) {
-		flex-direction: column;
-		position: relative;
 	}
 `;
 export const ContentFooter1 = styled.div`
@@ -577,7 +600,7 @@ export const ContentFooter1 = styled.div`
 	font-family: "Open Sans";
 	font-style: normal;
 	font-weight: 700;
-	font-size: 14px;
+	font-size: 12px;
 	line-height: 16px;
 	text-align: right;
 	display: flex;
@@ -587,7 +610,6 @@ export const ContentFooter1 = styled.div`
 	flex-direction: row;
 	@media (max-width: 768px) {
 		margin-left: 1rem;
-		overflow: hidden;
 	}
 `;
 
@@ -600,6 +622,7 @@ export const FooterContent = styled.a`
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;
+		font-size: 1em;
 	}
 	@media (max-width: 1024px) {
 		margin-left: 3rem;
@@ -613,6 +636,7 @@ export const Border = styled.div`
 `;
 export const FooterContent3 = styled.div`
 	display: flex;
+	height: auto;
 `;
 export const FooterContents3 = styled.h1`
 	font-style: normal;
@@ -623,6 +647,10 @@ export const FooterContents3 = styled.h1`
 	mix-blend-mode: normal;
 	opacity: 0.5;
 	margin-left: 4rem;
+	@media (max-width: 768px) {
+		margin-left: 2rem;
+		font-size: 1.5em;
+	}
 `;
 export const FooterContents4 = styled.h1`
 	font-family: "Open Sans";
