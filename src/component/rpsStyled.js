@@ -6,14 +6,27 @@ export const Container = styled.div`
 	height: 100vh;
 	width: 100%;
 	display: flex;
+	min-width: 1280px;
+	@media (max-width: 768px) {
+		height: 1920px;
+	}
+	@media (min-width: 769px) {
+		height: 800px;
+	}
 `;
 export const GameContainer = styled.div`
 	margin-left: 15%;
+	@media (max-width: 768px) {
+		margin-left: 5%;
+		margin-top: 40%;
+	}
 `;
 export const PlayerResult = styled.div`
 	margin-top: 4rem;
 	margin-left: 15rem;
 	position: absolute;
+	@media (max-width: 768px) {
+	}
 `;
 export const PlayerChoice = styled.div`
 	display: flex;
